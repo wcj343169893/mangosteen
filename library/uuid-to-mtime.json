@@ -295,8 +295,8 @@
     "relativePath": "textures\\star.png"
   },
   "a491e28a-0ebf-41d9-8d91-3eca3d36fde8": {
-    "asset": 1537070810702,
-    "meta": 1537070810731,
+    "asset": 1537098606256,
+    "meta": 1537098606288,
     "relativePath": "game.fire"
   },
   "f8b997dd-a9fc-45fe-a706-414dbc48d384": {
@@ -489,34 +489,44 @@
     "meta": 1537064157137,
     "relativePath": "script"
   },
-  "1ab84d21-5f0a-41e3-80e5-b4abe17e51c8": {
-    "asset": 1537064576674,
-    "meta": 1537064578102,
-    "relativePath": "script\\Majiang.js"
-  },
   "d0267367-4ec6-4995-a614-649b1262a72e": {
     "asset": 1537066105486,
     "meta": 1537066105491,
     "relativePath": "resources"
   },
   "80feea53-bba6-433e-9650-df95bdc95e54": {
-    "asset": 1537067843524,
-    "meta": 1537067843542,
-    "relativePath": "mj_entity.prefab"
+    "asset": 1537095542898,
+    "meta": 1537095542953,
+    "relativePath": "prefabs\\mj_entity.prefab"
   },
   "bde42d7a-8a61-49ad-8ab9-3baf080d9f38": {
     "asset": 1537069668360,
     "meta": 1537069668383,
-    "relativePath": "numberEntity.prefab"
+    "relativePath": "prefabs\\numberEntity.prefab"
+  },
+  "1ab84d21-5f0a-41e3-80e5-b4abe17e51c8": {
+    "asset": 1537075318567,
+    "meta": 1537075322167,
+    "relativePath": "script\\Majiang.js"
+  },
+  "69e516c0-2b3a-41eb-869a-ca0e537bb10a": {
+    "asset": 1537081801709,
+    "meta": 1537081801714,
+    "relativePath": "prefabs"
+  },
+  "5874b798-1742-4dc1-9e05-3fb9419fc446": {
+    "asset": 1537082933666,
+    "meta": 1537082933691,
+    "relativePath": "prefabs\\mjBackground.prefab"
   },
   "13a94d14-370b-44ed-9d6a-d2da7ca69f07": {
-    "asset": 1537070089081,
-    "meta": 1537070122448,
+    "asset": 1537098351841,
+    "meta": 1537098354180,
     "relativePath": "script\\MajiangEntity.js"
   },
   "184e19f0-223a-4698-a3d6-f86b4d36c416": {
-    "asset": 1537070370371,
-    "meta": 1537070390887,
+    "asset": 1537098423858,
+    "meta": 1537098425874,
     "relativePath": "script\\Game.js"
   }
 }

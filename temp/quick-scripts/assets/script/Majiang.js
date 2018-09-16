@@ -24,13 +24,19 @@ cc.Class({
         outAudio: {
             default: null,
             type: cc.AudioClip
+        },
+        //摸进来的音效
+        inAudio: {
+            default: null,
+            type: cc.AudioClip
         }
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
-
+    onLoad: function onLoad() {
+        console.log("加载麻将----");
+    },
     start: function start() {}
 }
 

@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "mj_bg",
+    "_name": "majiangEntity",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -44,8 +44,8 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": 0.5,
+      "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
@@ -81,7 +81,7 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true,
+    "_enabled": false,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
@@ -100,7 +100,7 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_id": "42QKIH8DVJe5JAmmYInqJd"
+    "_id": "1fUe5MZstMAapTzEnDM2vw"
   },
   {
     "__type__": "13a940UNwtE7Z1q0tp8pp8H",
@@ -112,7 +112,11 @@
     "_enabled": true,
     "type": "wan",
     "number": 1,
-    "_id": "5742YsFxRHKYxAThnf7fUX"
+    "selectDuration": 1,
+    "status": 0,
+    "isSelected": false,
+    "clickTimer": 0,
+    "_id": "0cwWpddQpIZ7SwgB8+Pyel"
   },
   {
     "__type__": "cc.PrefabInfo",

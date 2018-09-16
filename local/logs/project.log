@@ -72,3 +72,22 @@
     at Object.<anonymous> (D:\cocos\mangosteen\temp\quick-scripts\assets\script\Majiang.js:50:11)
     at Object.<anonymous> (D:\cocos\mangosteen\temp\quick-scripts\assets\script\Majiang.js:53:3)
     at Module._compile (module.js:571:32)
+2018-09-16T06:40:50.341Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:148473
+2018-09-16T11:00:30.882Z - error: TypeError: Cannot read property 'uuid' of null
+    at SVGGElement.t.addEventListener (D:\CocosCreator\resources\app.asar\editor\page\gizmos\elements\gizmo.js:1:4491)
+2018-09-16T11:35:14.956Z - warn: The Prefab used by node "Label" is missing. Detailed information:
+Node path: "Canvas/btnBegin/Label"
+Missing uuid: "3aef4961-0802-477c-a3bd-42ffa18a224f"
+
+2018-09-16T11:38:39.114Z - warn: The Prefab used by node "Label" is missing. Detailed information:
+Node path: "Canvas/btnBegin/Label"
+Missing uuid: "3aef4961-0802-477c-a3bd-42ffa18a224f"
+
+2018-09-16T11:40:45.395Z - warn: The Asset used by component "cc.Canvas" is missing. Detailed information:
+Node path: "Canvas"
+Missing uuid: "3aef4961-0802-477c-a3bd-42ffa18a224f"
+
+2018-09-16T11:40:45.398Z - warn: The Asset used by component "cc.Canvas" is missing. Detailed information:
+Node path: "Canvas"
+Missing uuid: "3aef4961-0802-477c-a3bd-42ffa18a224f"
+
