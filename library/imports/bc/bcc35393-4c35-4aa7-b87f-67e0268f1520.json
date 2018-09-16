@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "xi",
+    "texture": "fb2ebdbe-4f88-4d50-9fbb-d13f21a21777",
+    "atlas": "",
+    "rect": [
+      8,
+      13,
+      36,
+      38
+    ],
+    "offset": [
+      2,
+      0
+    ],
+    "originalSize": [
+      48,
+      64
+    ]
+  }
+}

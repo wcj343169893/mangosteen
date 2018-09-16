@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "wan_9",
+    "texture": "3385edab-849d-4565-9aeb-ea35e9aea999",
+    "atlas": "",
+    "rect": [
+      8,
+      7,
+      33,
+      54
+    ],
+    "offset": [
+      0.5,
+      -2
+    ],
+    "originalSize": [
+      48,
+      64
+    ]
+  }
+}

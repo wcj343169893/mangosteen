@@ -1,0 +1,62 @@
+2018-09-16T01:43:21.825Z - normal: Load ~/.CocosCreator/settings.json
+2018-09-16T01:43:21.825Z - normal: checking language setting...
+2018-09-16T01:43:21.825Z - normal: Language: zh
+2018-09-16T01:43:23.627Z - success: protocol editor-framework registered
+2018-09-16T01:43:23.627Z - success: protocol app registered
+2018-09-16T01:43:23.627Z - success: protocol theme registered
+2018-09-16T01:43:23.627Z - success: protocol packages registered
+2018-09-16T01:43:23.627Z - success: protocol unpack registerred
+2018-09-16T01:43:23.627Z - success: protocol disable-commonjs registerred
+2018-09-16T01:43:23.848Z - normal: connected!
+2018-09-16T01:43:23.848Z - normal: Check project D:\cocos\mangosteen
+2018-09-16T01:43:23.863Z - normal: Initializing project D:\cocos\mangosteen
+2018-09-16T01:43:23.863Z - normal: Initializing Cocos2d
+2018-09-16T01:43:24.869Z - normal: Initializing Asset Database
+2018-09-16T01:43:24.931Z - success: protocol uuid registerred
+2018-09-16T01:43:24.947Z - success: protocol db registerred
+2018-09-16T01:43:24.947Z - success: protocol thumbnail registerred
+2018-09-16T01:43:24.947Z - normal: Loading editor/builtin packages
+2018-09-16T01:43:25.152Z - success: assets loaded
+2018-09-16T01:43:25.152Z - success: builder loaded
+2018-09-16T01:43:25.152Z - success: cocos-analytics loaded
+2018-09-16T01:43:25.152Z - success: console loaded
+2018-09-16T01:43:25.214Z - success: fb-instant-games loaded
+2018-09-16T01:43:25.214Z - success: hierarchy loaded
+2018-09-16T01:43:25.214Z - success: inspector loaded
+2018-09-16T01:43:25.230Z - success: keystore loaded
+2018-09-16T01:43:25.230Z - success: node-library loaded
+2018-09-16T01:43:25.230Z - success: package-asset loaded
+2018-09-16T01:43:25.230Z - success: preferences loaded
+2018-09-16T01:43:25.230Z - success: project-exporter loaded
+2018-09-16T01:43:25.261Z - success: project-importer loaded
+2018-09-16T01:43:25.261Z - success: project-settings loaded
+2018-09-16T01:43:25.261Z - success: ui-kit loaded
+2018-09-16T01:43:25.276Z - success: scene loaded
+2018-09-16T01:43:25.276Z - success: sprite-editor loaded
+2018-09-16T01:43:25.276Z - success: store loaded
+2018-09-16T01:43:25.276Z - success: timeline loaded
+2018-09-16T01:43:25.276Z - normal: Loading builtin packages
+2018-09-16T01:43:25.292Z - success: asset-db-debugger loaded
+2018-09-16T01:43:25.292Z - success: code-editor loaded
+2018-09-16T01:43:25.292Z - success: color-picker loaded
+2018-09-16T01:43:25.292Z - success: jsb-adapter loaded
+2018-09-16T01:43:25.292Z - success: package-manager loaded
+2018-09-16T01:43:25.432Z - success: qqplay-adapter loaded
+2018-09-16T01:43:25.432Z - success: sdkbox loaded
+2018-09-16T01:43:25.432Z - success: tester loaded
+2018-09-16T01:43:25.448Z - success: ui-grid loaded
+2018-09-16T01:43:25.448Z - success: ui-kit-preview-extra loaded
+2018-09-16T01:43:25.448Z - success: ui-kit-preview loaded
+2018-09-16T01:43:25.448Z - success: ui-tree loaded
+2018-09-16T01:43:25.448Z - success: weapp-adapter loaded
+2018-09-16T01:43:27.031Z - normal: Loading packages
+2018-09-16T01:43:27.031Z - normal: Watching packages
+2018-09-16T01:43:27.641Z - normal: Run Application
+2018-09-16T01:43:29.036Z - success: preview server running at http://localhost:7456
+2018-09-16T01:46:00.386Z - failed: Failed to drop asset a491e28a-0ebf-41d9-8d91-3eca3d36fde8, message: Error: Can not create node from cc.SceneAsset
+    at cc.AssetLibrary.loadAsset (D:\CocosCreator\resources\app.asar\editor\page\scene-utils\utils\node.js:1:4361)
+    at CCLoader.<anonymous> (D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\platform\CCAssetLibrary.js:63:25)
+    at D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\load-pipeline\CCLoader.js:134:46
+    at D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\platform\utils.js:48:25
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
