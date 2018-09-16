@@ -60,3 +60,15 @@
     at D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\platform\utils.js:48:25
     at _combinedTickCallback (internal/process/next_tick.js:73:7)
     at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-09-16T02:17:35.854Z - warn: [db-task][sync-changes] Backup unused meta file: db://assets/script/majiang.js.meta
+2018-09-16T02:21:12.031Z - warn: 'Majiang.name' hides inherited property 'cc.Component.name'. To make the current property override that implementation, add the `override: true` attribute please.
+2018-09-16T02:21:12.034Z - error: Can not declare Majiang.name, it is already defined in the prototype of Majiang
+    at Object.cc.errorID (D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\CCDebug.js:166:16)
+    at defineProp (D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\platform\CCClass.js:122:24)
+    at declareProperties (D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\platform\CCClass.js:649:25)
+    at Object.CCClass [as Class] (D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\platform\CCClass.js:688:17)
+    at __define (D:\cocos\mangosteen\temp\quick-scripts\assets\script\Majiang.js:17:4)
+    at D:\cocos\mangosteen\temp\quick-scripts\assets\script\Majiang.js:43:13
+    at Object.<anonymous> (D:\cocos\mangosteen\temp\quick-scripts\assets\script\Majiang.js:50:11)
+    at Object.<anonymous> (D:\cocos\mangosteen\temp\quick-scripts\assets\script\Majiang.js:53:3)
+    at Module._compile (module.js:571:32)
