@@ -62,81 +62,47 @@ cc.Class({
      	this.getRandomNumbers();
      	this.majiangPool = new cc.NodePool();
      	let initCount = 13;
-     	let nubArr_wan=[];
-     	let nubArr_tiao=[];
-     	let nubArr_tong=[];
+     	let nubArr=[];
      	for (let i = 0; i < initCount; ++i) {
      		let ent=this.numbers[i];
-     		if(ent.huase=="wan"){
-     			nubArr_wan.push(ent);
-     		}else if(ent.huase=="tiao"){
-	     		nubArr_tiao.push(ent);
-     		}else{
-	     		nubArr_tong.push(ent);
-     		}
+ 			nubArr.push(ent);
      	}
-     	if(nubArr_wan.length>0){
+     	if(nubArr.length>0){
 	     	//按index排序
-	     	nubArr_wan.sort(function(a,b){ 
-	     		return a.number>b.number; 
+	     	nubArr.sort(function(a,b){ 
+	     		return a.index>b.index; 
 	     	});
      	}
-     	if(nubArr_tiao.length>0){
-	     	//按index排序
-	     	nubArr_tiao.sort(function(a,b){ 
-	     		return a.number>b.number; 
-	     	});
-     	}
-     	if(nubArr_tong.length>0){
-	     	//按index排序
-	     	nubArr_tong.sort(function(a,b){ 
-	     		return a.number>b.number; 
-	     	});
-     	}
-     	var posIndex=0;
-     	for (let i = 0; i < nubArr_wan.length; ++i) {
-			let mjzz=nubArr_wan[i];      
+     	for (let i = 0; i < nubArr.length; ++i) {
+			let mjzz=nubArr[i];      
 	        //生成一个新麻将
 	        let mj = this.spawnNewMj(mjzz);
 	        //一排，依次排开
-			mj.setPosition(this.getNewMjPosition(posIndex));
+			mj.setPosition(this.getNewMjPosition(i));
 	        this.majiangPool.put(mj); // 通过 putInPool 接口放入对象池
-	        posIndex++;
 	    }
-     	for (let i = 0; i < nubArr_tiao.length; ++i) {
-			let mjzz=nubArr_tiao[i];      
-	        //生成一个新麻将
-	        let mj = this.spawnNewMj(mjzz);
-	        //一排，依次排开
-			mj.setPosition(this.getNewMjPosition(posIndex));
-	        this.majiangPool.put(mj); // 通过 putInPool 接口放入对象池
-	        posIndex++;
-	    }
-     	for (let i = 0; i < nubArr_tong.length; ++i) {
-			let mjzz=nubArr_tong[i];      
-	        //生成一个新麻将
-	        let mj = this.spawnNewMj(mjzz);
-	        //一排，依次排开
-			mj.setPosition(this.getNewMjPosition(posIndex));
-	        this.majiangPool.put(mj); // 通过 putInPool 接口放入对象池
-	        posIndex++;
-	    }
-     	
      },
      getRandomNumbers:function(){
      	//产生1-9数字 numbers  ,每个花色36个数字
 	    var arr=[];
 	    var huase=["tiao","tong","wan"];
-	    for(var i=0;i<108;i++){
-	    	let huaIndex=parseInt(i/36);
-	    	let nub=i%9+1;
-	        arr[i]={
-	        	"index":i,
-	        	"key":huase[huaIndex]+"_"+i,
-	        	"huase":huase[huaIndex],
-	        	"number":nub
-	        };
-	    }
+	    var index=0;
+	    //遍历花色
+	    huase.forEach(function(se,ind){
+	    	//遍历1-9数字
+	    	for(let ds=1;ds<=9;ds++){
+	    		//每种产生4张
+	    		for(let amount=0;amount<4;amount++){
+	    			arr.push({
+			        	"index":index,
+			        	"key":se+"_"+ds,
+			        	"huase":se,
+			        	"number":ds
+			        });
+	    			index++;
+	    		}
+	    	}
+	    });
 	    //第一次打乱
 	    arr.sort(function(){ return 0.5 - Math.random() });
 	    //第二次打乱
