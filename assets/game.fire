@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5140569133280329,
-      "y": 0.5140569133280329,
+      "x": 0.7828125,
+      "y": 0.7828125,
       "z": 1
     },
     "_quat": {
@@ -615,11 +615,15 @@
     "takeoutScale": 0.5,
     "majiangWidth": 58,
     "majiangHeight": 84,
-    "basicTakeout": 0,
+    "majiangJianxi": 4,
+    "basicTakeoutY": 0,
     "numbers": [],
     "btnReady": {
       "__id__": 12
     },
+    "duiziCount": 0,
+    "duiziWidth": 0,
+    "duiziScale": 0.8,
     "_id": "eat/LSAzlODY/ixfeiaVOf"
   }
 ]

@@ -15,7 +15,10 @@ cc.Class({
 		status: 0,
 		isSelected: false,
 		//上一次结束时间，毫秒级
-		clickTimer: 0
+		clickTimer: 0,
+		majiangWidth:0,
+		majiangHeight:0,
+		majiangJianxi:0
 	},
 
 	// LIFE-CYCLE CALLBACKS:
@@ -43,7 +46,6 @@ cc.Class({
 			this.clickTimer=endTimer;
 		}, this);
 	},
-
 	//设置状态
 	setStatus: function(state) {
 		var self = this;
@@ -117,17 +119,42 @@ cc.Class({
 		//整体变小
 		this.node.setScale(this.game.takeoutScale);
 		//按照顺序，排列在面前，10张
-		this.node.setPosition(this.game.getTakeOutPosition());
+		this.node.setPosition(this.game.getTakeOutPosition(this.node));
 		this.enabled = false
 		this.node.off(cc.Node.EventType.TOUCH_START);
 		this.node.off(cc.Node.EventType.TOUCH_END);
 		//停止并且移除所有正在运行的动作列表。
         //this.node.stopAllActions();
-		//调用game整理手里的牌
+		this.moveToRight();
+		//更新我下一个的prevs是我的prevs
+		if(this.nexts!=null){
+			this.nexts.prevs=this.prevs;
+		}
+		//上一个的下一个是我的下一个
+		if(this.prevs!=null){
+			this.prevs.nexts=this.nexts;
+		}
 	},
 	start() {
 
 	},
+	moveToRight:function(){
+		//=========出牌，碰，杠========
+		//调用game整理手里的牌，左边向右靠拢
+		if(this.prevs!=null){
+			let prevNode=this.prevs.node;
+			//console.log(prevNode.x);
+			let px=prevNode.x+this.majiangWidth-this.majiangJianxi;
+			let py=prevNode.y;
+			prevNode.setPosition(px,py);
+			//this.prevs.node
+			//递归调用左边的
+			this.prevs.moveToRight();
+		}
+	},
+	moveToLeft:function(){
+		//===========摸牌=========
+	}
 
 	// update (dt) {},
 });
