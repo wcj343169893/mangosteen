@@ -15,10 +15,7 @@ cc.Class({
 		status: 0,
 		isSelected: false,
 		//上一次结束时间，毫秒级
-		clickTimer: 0,
-		majiangWidth:0,
-		majiangHeight:0,
-		majiangJianxi:0
+		clickTimer: 0
 	},
 
 	// LIFE-CYCLE CALLBACKS:
@@ -99,25 +96,28 @@ cc.Class({
 			return;
 		}
 		if(this.isSelected) {
-			this.isSelected = false;
-			this.bgNode.setRotation(180);
-			this.bgNode.setPosition(cc.v2(0, 0));
-			this.numbNode.setPosition(cc.v2(0, -12));
+			this.unSelect();
 		} else {
 			this.isSelected = true;
 			this.bgNode.setRotation(180);
 			this.bgNode.setPosition(cc.v2(0, 22));
 			this.numbNode.setPosition(cc.v2(0, 12));
-			//被选中后打出去，位置偏离了
+			//取消其他的选中状态
+			this.game.unSelectOthers(this);
 		}
 	},
 	onDoubleClick: function() {
-		//打出去,
+		//打出去,如果没有摸牌，是打不出去的
+		if(!this.game.currentMajiang){
+			return;
+		}
+		
 		this.bgNode.setRotation(0);
 		this.bgNode.setPosition(cc.v2(0, 22));
 		this.numbNode.setPosition(cc.v2(0,32));
 		//整体变小
 		this.node.setScale(this.game.takeoutScale);
+		console.log("缩放比例",this.game.takeoutScale)
 		//按照顺序，排列在面前，10张
 		this.node.setPosition(this.game.getTakeOutPosition(this.node));
 		this.enabled = false
@@ -125,36 +125,23 @@ cc.Class({
 		this.node.off(cc.Node.EventType.TOUCH_END);
 		//停止并且移除所有正在运行的动作列表。
         //this.node.stopAllActions();
-		this.moveToRight();
-		//更新我下一个的prevs是我的prevs
-		if(this.nexts!=null){
-			this.nexts.prevs=this.prevs;
-		}
-		//上一个的下一个是我的下一个
-		if(this.prevs!=null){
-			this.prevs.nexts=this.nexts;
-		}
+        //如果自己就是新牌,不会影响原来的顺序
+        if(this.index != this.game.currentMajiang.index){
+        	this.game.updateShoulipai(this);
+        }else{
+        	this.game.testGetOne()
+        }
 	},
 	start() {
 
 	},
-	moveToRight:function(){
-		//=========出牌，碰，杠========
-		//调用game整理手里的牌，左边向右靠拢
-		if(this.prevs!=null){
-			let prevNode=this.prevs.node;
-			//console.log(prevNode.x);
-			let px=prevNode.x+this.majiangWidth-this.majiangJianxi;
-			let py=prevNode.y;
-			prevNode.setPosition(px,py);
-			//this.prevs.node
-			//递归调用左边的
-			this.prevs.moveToRight();
-		}
-	},
-	moveToLeft:function(){
-		//===========摸牌=========
+	unSelect:function(){
+		this.isSelected = false;
+		this.bgNode.setRotation(180);
+		this.bgNode.setPosition(cc.v2(0, 0));
+		this.numbNode.setPosition(cc.v2(0, -12));
 	}
+
 
 	// update (dt) {},
 });

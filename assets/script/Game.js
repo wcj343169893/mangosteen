@@ -20,7 +20,9 @@ cc.Class({
 		//打出去多少张
 		takeoutIndex: 0,
 		//打出去缩放比例
-		takeoutScale: 0.75,
+		takeoutScale: 1,
+		//初始化缩放比例
+		initScale: 1.25,
 		//单个麻将宽度
 		majiangWidth: 58,
 		//单个麻将高度
@@ -32,12 +34,30 @@ cc.Class({
 		numbers: [],
 		//准备按钮
 		btnReady: cc.Button,
+		//摸牌按钮
+		btnGetOne: cc.Button,
 		//对子组数量
 		duiziCount: 0,
 		//一组对子的宽度
 		duiziWidth: 0,
 		//对子缩放比例
-		duiziScale: 0.8
+		duiziScale: 1,
+		//是否只能选择一张
+		isSingle:true,
+		//麻将索引
+		majiangIndex:0,
+		//新摸的一颗
+		currentMajiang:null,
+		//第一颗麻将
+		firstMajiang:null,
+		//手头牌列表
+		shouliList:[],
+		//对子列表
+		duiziList:[],
+		//暗杠列表
+		angangList:[],
+		//明杠列表
+		minggangList:[]
 
 	},
 
@@ -51,14 +71,17 @@ cc.Class({
 		//右下角位置点
 		this.basicWidth = -width / 2;
 		this.basicHeight = -height / 2;
-		this.basicTakeoutY = this.basicHeight + 120;
+		this.basicTakeoutY = this.basicHeight + this.majiangHeight*this.initScale+40;
 		console.log(width, height);
 		//麻将总长=（麻将宽度-间隙）*13
-		this.majiangAllWidth = (this.majiangWidth - this.majiangJianxi) * 13;
+		this.majiangAllWidth = (this.majiangWidth*this.initScale - this.majiangJianxi) * 13;
 		//计算一组对子(杠)的宽度，三张牌放底下，缩放80%
 		this.duiziWidth = (this.majiangWidth - this.majiangJianxi) * 3 * this.duiziScale;
 		//准备按钮绑定事件
 		this.btnReady.node.on('click', this.begin, this);
+		//测试摸牌按钮
+		this.btnGetOne.node.on('click', this.mopai, this);
+		
 	},
 
 	start() {
@@ -79,6 +102,19 @@ cc.Class({
 			this.node.addChild(majiang);
 		}*/
 	},
+	mopai:function(){
+		//摸一张，放到最右手边，理论上从服务器获得一个号码，测试从本地获取
+		let mjzz = this.numbers[this.majiangIndex];
+		
+		let mj = this.spawnNewMj(mjzz);
+		mj.setScale(this.initScale);
+		this.currentMajiang = mj.getComponent('MajiangEntity');
+		let aw = this.getAW();
+		//设置固定位置
+		mj.setPosition(this.getNewMjPosition(13,true,aw));
+		this.node.addChild(mj);
+		this.majiangIndex++;
+	},
 	initAllMajiang: function() {
 		this.getRandomNumbers();
 		//this.majiangPool = new cc.NodePool();
@@ -88,6 +124,7 @@ cc.Class({
 		for(let i = 0; i < initCount; ++i) {
 			let ent = this.numbers[i];
 			nubArr.push(ent);
+			this.majiangIndex++;
 		}
 		console.log(nubArr)
 		if(nubArr.length > 0) {
@@ -96,38 +133,27 @@ cc.Class({
 				return a.index - b.index;
 			});
 		}
-		//手里牌数组
-		this.shoulipai=[];
-		let prev=null;
+		//let aw = this.getAW();
 		for(let i = 0; i < nubArr.length; ++i) {
 			let mjzz = nubArr[i];
 			//生成一个新麻将
-			//let mj = this.spawnNewMj(mjzz,prev);
-			var mj = cc.instantiate(this.majiangPrefab);
+			let mj = this.spawnNewMj(mjzz);
+			mj.setScale(this.initScale);
 			var config = mj.getComponent('MajiangEntity');
-			config.game = this;
-			config.type = mjzz.huase;
-			config.number = mjzz.number;
-			
-			config.majiangWidth=this.majiangWidth;
-			config.majiangHeight=this.majiangHeight;
-			config.majiangJianxi=this.majiangJianxi;
-			
-			if(prev==null){
-				prev=config;
-			}else{
-				//关联上一个和下一个
-				config.prevs=prev;
-				prev.nexts=config;
-				prev=config;
-			}
 			//一排，依次排开
-			mj.setPosition(this.getNewMjPosition(i));
-			this.shoulipai.push(mj);
+			//mj.setPosition(this.getNewMjPosition(i,false,0));
 			//添加到节点上
 			this.node.addChild(mj);
 			//this.majiangPool.put(mj); // 通过 putInPool 接口放入对象池
+			//if(this.firstMajiang==null){
+				//this.firstMajiang=config;
+				//this.firstMajiang.isFirst=true;
+				//console.log(this.firstMajiang)
+			//}
+			//把所有牌放入手头牌列表
+			this.shouliList.push(config);
 		}
+		this.updateShoulipai();
 	},
 	getRandomNumbers: function() {
 		//产生1-9数字 numbers  ,每个花色36个数字
@@ -161,28 +187,28 @@ cc.Class({
 		//console.log(arr);
 		this.numbers = arr;
 	},
-	spawnNewMj: function(mjzz,prev) {
+	//生成麻将对象
+	spawnNewMj: function(mjzz) {
 		console.log("创建麻将：", mjzz.huase, mjzz.number)
-		//生成一个新麻将
-		var newMj = cc.instantiate(this.majiangPrefab);
-
-		//console.log("已经new了")
-		// 将新增的节点添加到 Canvas 节点下面
-		//this.node.addChild(newMj);
-		var config = newMj.getComponent('MajiangEntity');
+		var mj = cc.instantiate(this.majiangPrefab);
+		var config = mj.getComponent('MajiangEntity');
 		config.game = this;
 		config.type = mjzz.huase;
 		config.number = mjzz.number;
-		//旋转成正面
-		//newMj.setRotation(180)
-		return newMj;
+		config.index = mjzz.index;
+		return mj;
 	},
-	getNewMjPosition: function(index) {
+	//获取每个麻将位置
+	getNewMjPosition: function(index,isNewOne,start) {
 		//获取新麻将的位置
-		var randX = -this.majiangAllWidth / 2 + (index) * (this.majiangWidth - this.majiangJianxi);
-		var randY = this.basicHeight + 60; //-this.node./2;
-
-		console.log("位置：", index, randX, randY);
+		var randX = start-this.majiangAllWidth / 2 + (index) * (this.majiangWidth*this.initScale - this.majiangJianxi);
+		var randY = this.basicHeight + 70; //-this.node./2;
+		console.log("位置1：", index, randX, randY);
+		if(isNewOne){
+			randX=randX+20;
+			console.log("新牌")
+			console.log("位置2：", index, randX, randY);
+		}
 		return cc.v2(randX, randY);
 	},
 	getTakeOutPosition: function(node) {
@@ -194,7 +220,7 @@ cc.Class({
 		//this.node.addChild(node);
 		//let mjSize = this.majiangPool.size();
 		//console.log("剩余张数",mjSize);
-		let scaleWidth = (this.majiangWidth - 4) * this.takeoutScale;
+		let scaleWidth = (this.majiangWidth - this.majiangJianxi) * this.takeoutScale;
 		let outNumb = 10;
 		//获取打出去的位置
 		let outLevel = parseInt(this.takeoutIndex / outNumb);
@@ -208,9 +234,66 @@ cc.Class({
 		//调用重新排序
 		return cc.v2(mjX, mjY);
 	},
+	//更新手里牌
 	updateShoulipai:function(ent){
 		//更新手里牌http://www.w3school.com.cn/jsref/jsref_splice.asp
-		this.shoulipai=[];
+		let newList=[];
+		let self=this;
+		//重新整理顺序
+		let aw = this.getAW();
+		let index=0;
+		this.shouliList.forEach(function(value,ind){
+			if(!ent || value.index != ent.index){
+				if(self.currentMajiang && value.index > self.currentMajiang.index){
+					//设置新牌的位置
+					self.currentMajiang.node.setPosition(self.getNewMjPosition(index,false,aw));
+					newList.push(self.currentMajiang);
+					//清空新牌
+					self.currentMajiang=null;
+					index++;
+				}
+				//设置留下来的位置
+				value.node.setPosition(self.getNewMjPosition(index,false,aw));
+				newList.push(value);
+				index++;
+			}
+		});
+		//如果是最后一张
+		if(self.currentMajiang){
+			//设置新牌的位置
+			self.currentMajiang.node.setPosition(self.getNewMjPosition(index,false,aw));
+			newList.push(self.currentMajiang);
+			//清空新牌
+			self.currentMajiang=null;
+		}
 		
+		this.shouliList=newList;
+		//console.log(this.shouliList);
+		if(ent){
+			this.testGetOne();
+		}
+	},
+	//获取麻将排列起点位置
+	getAW:function(){
+		let duigangWidth=this.duiziWidth;
+		let aw = (this.duiziList.length+this.angangList.length+this.minggangList.length)*(duigangWidth+10)+50;
+		return aw;
+	},
+	//让其他小主坐冷板凳
+	unSelectOthers:function(ent){
+		//定缺，平时选择一张
+		if(this.isSingle){
+			this.shouliList.forEach(function(value,ind){
+				if(value.index!=ent.index && value.isSelected){
+					value.unSelect();
+				}
+			});
+		}
+	},testGetOne:function(){
+		let self=this;
+		//测试专用，3秒自动摸牌
+		setTimeout(function(){
+			self.mopai();
+		},3000)
 	}
 });
