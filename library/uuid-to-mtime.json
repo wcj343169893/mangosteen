@@ -265,7 +265,7 @@
     "relativePath": "mikado_outline_shadow.fnt"
   },
   "d6ff10bc-4d58-4d63-8af4-19151a90da2c": {
-    "asset": 1526930962000,
+    "asset": 1537066131848,
     "meta": 1526930962000,
     "relativePath": "textures"
   },
@@ -295,8 +295,8 @@
     "relativePath": "textures\\star.png"
   },
   "a491e28a-0ebf-41d9-8d91-3eca3d36fde8": {
-    "asset": 1537098606256,
-    "meta": 1537098606288,
+    "asset": 1537458305886,
+    "meta": 1537458305909,
     "relativePath": "game.fire"
   },
   "f8b997dd-a9fc-45fe-a706-414dbc48d384": {
@@ -485,12 +485,12 @@
     "relativePath": "textures\\background.jpg"
   },
   "f319e612-a073-46fa-bd75-6ed036d1b026": {
-    "asset": 1537064157130,
+    "asset": 1537359441145,
     "meta": 1537064157137,
     "relativePath": "script"
   },
   "d0267367-4ec6-4995-a614-649b1262a72e": {
-    "asset": 1537066105486,
+    "asset": 1537067358112,
     "meta": 1537066105491,
     "relativePath": "resources"
   },
@@ -510,7 +510,7 @@
     "relativePath": "script\\Majiang.js"
   },
   "69e516c0-2b3a-41eb-869a-ca0e537bb10a": {
-    "asset": 1537081801709,
+    "asset": 1537097706576,
     "meta": 1537081801714,
     "relativePath": "prefabs"
   },
@@ -520,13 +520,13 @@
     "relativePath": "prefabs\\mjBackground.prefab"
   },
   "13a94d14-370b-44ed-9d6a-d2da7ca69f07": {
-    "asset": 1537098351841,
-    "meta": 1537098354180,
+    "asset": 1537457468059,
+    "meta": 1537457470091,
     "relativePath": "script\\MajiangEntity.js"
   },
   "184e19f0-223a-4698-a3d6-f86b4d36c416": {
-    "asset": 1537098423858,
-    "meta": 1537098425874,
+    "asset": 1537458242921,
+    "meta": 1537458245086,
     "relativePath": "script\\Game.js"
   }
 }

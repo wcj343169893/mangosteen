@@ -50,7 +50,6 @@ cc.Class({
 		}, this);
 	},
 
-
 	//设置状态
 	setStatus: function setStatus(state) {
 		var self = this;
@@ -102,39 +101,53 @@ cc.Class({
 			return;
 		}
 		if (this.isSelected) {
-			this.isSelected = false;
-			this.bgNode.setRotation(180);
-			this.bgNode.setPosition(cc.v2(0, 0));
-			this.numbNode.setPosition(cc.v2(0, -12));
+			this.unSelect();
 		} else {
 			this.isSelected = true;
 			this.bgNode.setRotation(180);
 			this.bgNode.setPosition(cc.v2(0, 22));
 			this.numbNode.setPosition(cc.v2(0, 12));
-			//被选中后打出去，位置偏离了
+			//取消其他的选中状态
+			this.game.unSelectOthers(this);
 		}
 	},
 	onDoubleClick: function onDoubleClick() {
-		//打出去,
+		//打出去,如果没有摸牌，是打不出去的
+		if (!this.game.currentMajiang) {
+			return;
+		}
+
 		this.bgNode.setRotation(0);
 		this.bgNode.setPosition(cc.v2(0, 22));
 		this.numbNode.setPosition(cc.v2(0, 32));
 		//整体变小
 		this.node.setScale(this.game.takeoutScale);
+		console.log("缩放比例", this.game.takeoutScale);
 		//按照顺序，排列在面前，10张
-		this.node.setPosition(this.game.getTakeOutPosition());
+		this.node.setPosition(this.game.getTakeOutPosition(this.node));
 		this.enabled = false;
 		this.node.off(cc.Node.EventType.TOUCH_START);
 		this.node.off(cc.Node.EventType.TOUCH_END);
 		//停止并且移除所有正在运行的动作列表。
 		//this.node.stopAllActions();
-		//调用game整理手里的牌
+		//如果自己就是新牌,不会影响原来的顺序
+		if (this.index != this.game.currentMajiang.index) {
+			this.game.updateShoulipai(this);
+		} else {
+			this.game.testGetOne();
+		}
 	},
-	start: function start() {}
-}
+	start: function start() {},
 
-// update (dt) {},
-);
+	unSelect: function unSelect() {
+		this.isSelected = false;
+		this.bgNode.setRotation(180);
+		this.bgNode.setPosition(cc.v2(0, 0));
+		this.numbNode.setPosition(cc.v2(0, -12));
+	}
+
+	// update (dt) {},
+});
 
 cc._RF.pop();
         }

@@ -63,32 +63,6 @@
         "assets",
         "scene"
       ]
-    },
-    "window-1537095664040": {
-      "main": false,
-      "url": "unpack://static/window.html",
-      "windowType": "dockable",
-      "x": 475,
-      "y": 185,
-      "width": 420,
-      "height": 338,
-      "layout": {
-        "children": [
-          {
-            "active": 0,
-            "children": [
-              "console"
-            ],
-            "height": 300,
-            "type": "panel",
-            "width": 404
-          }
-        ],
-        "type": "dock-v"
-      },
-      "panels": [
-        "console"
-      ]
     }
   },
   "panels": {
@@ -121,6 +95,12 @@
       "y": 185,
       "width": 420,
       "height": 338
+    },
+    "builder": {
+      "x": 417,
+      "y": 0,
+      "width": 516,
+      "height": 728
     }
   }
 }

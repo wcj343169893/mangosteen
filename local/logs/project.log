@@ -1,93 +1,140 @@
-2018-09-16T01:43:21.825Z - normal: Load ~/.CocosCreator/settings.json
-2018-09-16T01:43:21.825Z - normal: checking language setting...
-2018-09-16T01:43:21.825Z - normal: Language: zh
-2018-09-16T01:43:23.627Z - success: protocol editor-framework registered
-2018-09-16T01:43:23.627Z - success: protocol app registered
-2018-09-16T01:43:23.627Z - success: protocol theme registered
-2018-09-16T01:43:23.627Z - success: protocol packages registered
-2018-09-16T01:43:23.627Z - success: protocol unpack registerred
-2018-09-16T01:43:23.627Z - success: protocol disable-commonjs registerred
-2018-09-16T01:43:23.848Z - normal: connected!
-2018-09-16T01:43:23.848Z - normal: Check project D:\cocos\mangosteen
-2018-09-16T01:43:23.863Z - normal: Initializing project D:\cocos\mangosteen
-2018-09-16T01:43:23.863Z - normal: Initializing Cocos2d
-2018-09-16T01:43:24.869Z - normal: Initializing Asset Database
-2018-09-16T01:43:24.931Z - success: protocol uuid registerred
-2018-09-16T01:43:24.947Z - success: protocol db registerred
-2018-09-16T01:43:24.947Z - success: protocol thumbnail registerred
-2018-09-16T01:43:24.947Z - normal: Loading editor/builtin packages
-2018-09-16T01:43:25.152Z - success: assets loaded
-2018-09-16T01:43:25.152Z - success: builder loaded
-2018-09-16T01:43:25.152Z - success: cocos-analytics loaded
-2018-09-16T01:43:25.152Z - success: console loaded
-2018-09-16T01:43:25.214Z - success: fb-instant-games loaded
-2018-09-16T01:43:25.214Z - success: hierarchy loaded
-2018-09-16T01:43:25.214Z - success: inspector loaded
-2018-09-16T01:43:25.230Z - success: keystore loaded
-2018-09-16T01:43:25.230Z - success: node-library loaded
-2018-09-16T01:43:25.230Z - success: package-asset loaded
-2018-09-16T01:43:25.230Z - success: preferences loaded
-2018-09-16T01:43:25.230Z - success: project-exporter loaded
-2018-09-16T01:43:25.261Z - success: project-importer loaded
-2018-09-16T01:43:25.261Z - success: project-settings loaded
-2018-09-16T01:43:25.261Z - success: ui-kit loaded
-2018-09-16T01:43:25.276Z - success: scene loaded
-2018-09-16T01:43:25.276Z - success: sprite-editor loaded
-2018-09-16T01:43:25.276Z - success: store loaded
-2018-09-16T01:43:25.276Z - success: timeline loaded
-2018-09-16T01:43:25.276Z - normal: Loading builtin packages
-2018-09-16T01:43:25.292Z - success: asset-db-debugger loaded
-2018-09-16T01:43:25.292Z - success: code-editor loaded
-2018-09-16T01:43:25.292Z - success: color-picker loaded
-2018-09-16T01:43:25.292Z - success: jsb-adapter loaded
-2018-09-16T01:43:25.292Z - success: package-manager loaded
-2018-09-16T01:43:25.432Z - success: qqplay-adapter loaded
-2018-09-16T01:43:25.432Z - success: sdkbox loaded
-2018-09-16T01:43:25.432Z - success: tester loaded
-2018-09-16T01:43:25.448Z - success: ui-grid loaded
-2018-09-16T01:43:25.448Z - success: ui-kit-preview-extra loaded
-2018-09-16T01:43:25.448Z - success: ui-kit-preview loaded
-2018-09-16T01:43:25.448Z - success: ui-tree loaded
-2018-09-16T01:43:25.448Z - success: weapp-adapter loaded
-2018-09-16T01:43:27.031Z - normal: Loading packages
-2018-09-16T01:43:27.031Z - normal: Watching packages
-2018-09-16T01:43:27.641Z - normal: Run Application
-2018-09-16T01:43:29.036Z - success: preview server running at http://localhost:7456
-2018-09-16T01:46:00.386Z - failed: Failed to drop asset a491e28a-0ebf-41d9-8d91-3eca3d36fde8, message: Error: Can not create node from cc.SceneAsset
-    at cc.AssetLibrary.loadAsset (D:\CocosCreator\resources\app.asar\editor\page\scene-utils\utils\node.js:1:4361)
-    at CCLoader.<anonymous> (D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\platform\CCAssetLibrary.js:63:25)
-    at D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\load-pipeline\CCLoader.js:134:46
-    at D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\platform\utils.js:48:25
-    at _combinedTickCallback (internal/process/next_tick.js:73:7)
-    at process._tickCallback (internal/process/next_tick.js:104:9)
-2018-09-16T02:17:35.854Z - warn: [db-task][sync-changes] Backup unused meta file: db://assets/script/majiang.js.meta
-2018-09-16T02:21:12.031Z - warn: 'Majiang.name' hides inherited property 'cc.Component.name'. To make the current property override that implementation, add the `override: true` attribute please.
-2018-09-16T02:21:12.034Z - error: Can not declare Majiang.name, it is already defined in the prototype of Majiang
-    at Object.cc.errorID (D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\CCDebug.js:166:16)
-    at defineProp (D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\platform\CCClass.js:122:24)
-    at declareProperties (D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\platform\CCClass.js:649:25)
-    at Object.CCClass [as Class] (D:\CocosCreator\resources\engine\bin\.cache\dev\cocos2d\core\platform\CCClass.js:688:17)
-    at __define (D:\cocos\mangosteen\temp\quick-scripts\assets\script\Majiang.js:17:4)
-    at D:\cocos\mangosteen\temp\quick-scripts\assets\script\Majiang.js:43:13
-    at Object.<anonymous> (D:\cocos\mangosteen\temp\quick-scripts\assets\script\Majiang.js:50:11)
-    at Object.<anonymous> (D:\cocos\mangosteen\temp\quick-scripts\assets\script\Majiang.js:53:3)
-    at Module._compile (module.js:571:32)
-2018-09-16T06:40:50.341Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:148473
-2018-09-16T11:00:30.882Z - error: TypeError: Cannot read property 'uuid' of null
-    at SVGGElement.t.addEventListener (D:\CocosCreator\resources\app.asar\editor\page\gizmos\elements\gizmo.js:1:4491)
-2018-09-16T11:35:14.956Z - warn: The Prefab used by node "Label" is missing. Detailed information:
-Node path: "Canvas/btnBegin/Label"
-Missing uuid: "3aef4961-0802-477c-a3bd-42ffa18a224f"
+2018-09-20T15:34:30.185Z - normal: Load ~/.CocosCreator/settings.json
+2018-09-20T15:34:30.192Z - normal: checking language setting...
+2018-09-20T15:34:30.193Z - normal: Language: zh
+2018-09-20T15:34:32.091Z - success: protocol editor-framework registered
+2018-09-20T15:34:32.093Z - success: protocol app registered
+2018-09-20T15:34:32.093Z - success: protocol theme registered
+2018-09-20T15:34:32.093Z - success: protocol packages registered
+2018-09-20T15:34:32.094Z - success: protocol unpack registerred
+2018-09-20T15:34:32.094Z - success: protocol disable-commonjs registerred
+2018-09-20T15:34:32.369Z - normal: connected!
+2018-09-20T15:34:32.372Z - normal: Check project D:\cocos\mangosteen
+2018-09-20T15:34:32.379Z - normal: Initializing project D:\cocos\mangosteen
+2018-09-20T15:34:32.384Z - normal: Initializing Cocos2d
+2018-09-20T15:34:33.725Z - normal: Initializing Asset Database
+2018-09-20T15:34:33.825Z - success: protocol uuid registerred
+2018-09-20T15:34:33.826Z - success: protocol db registerred
+2018-09-20T15:34:33.826Z - success: protocol thumbnail registerred
+2018-09-20T15:34:33.826Z - normal: Loading editor/builtin packages
+2018-09-20T15:34:34.093Z - success: assets loaded
+2018-09-20T15:34:34.098Z - success: builder loaded
+2018-09-20T15:34:34.103Z - success: cocos-analytics loaded
+2018-09-20T15:34:34.109Z - success: console loaded
+2018-09-20T15:34:34.181Z - success: fb-instant-games loaded
+2018-09-20T15:34:34.189Z - success: hierarchy loaded
+2018-09-20T15:34:34.196Z - success: inspector loaded
+2018-09-20T15:34:34.199Z - success: keystore loaded
+2018-09-20T15:34:34.206Z - success: node-library loaded
+2018-09-20T15:34:34.209Z - success: package-asset loaded
+2018-09-20T15:34:34.212Z - success: preferences loaded
+2018-09-20T15:34:34.216Z - success: project-exporter loaded
+2018-09-20T15:34:34.248Z - success: project-importer loaded
+2018-09-20T15:34:34.251Z - success: project-settings loaded
+2018-09-20T15:34:34.257Z - success: ui-kit loaded
+2018-09-20T15:34:34.265Z - success: scene loaded
+2018-09-20T15:34:34.267Z - success: sprite-editor loaded
+2018-09-20T15:34:34.273Z - success: store loaded
+2018-09-20T15:34:34.280Z - success: timeline loaded
+2018-09-20T15:34:34.280Z - normal: Loading builtin packages
+2018-09-20T15:34:34.288Z - success: asset-db-debugger loaded
+2018-09-20T15:34:34.291Z - success: code-editor loaded
+2018-09-20T15:34:34.292Z - success: color-picker loaded
+2018-09-20T15:34:34.294Z - success: jsb-adapter loaded
+2018-09-20T15:34:34.300Z - success: package-manager loaded
+2018-09-20T15:34:34.556Z - success: qqplay-adapter loaded
+2018-09-20T15:34:34.565Z - success: sdkbox loaded
+2018-09-20T15:34:34.572Z - success: tester loaded
+2018-09-20T15:34:34.576Z - success: ui-grid loaded
+2018-09-20T15:34:34.579Z - success: ui-kit-preview-extra loaded
+2018-09-20T15:34:34.584Z - success: ui-kit-preview loaded
+2018-09-20T15:34:34.588Z - success: ui-tree loaded
+2018-09-20T15:34:34.589Z - success: weapp-adapter loaded
+2018-09-20T15:34:37.018Z - normal: Loading packages
+2018-09-20T15:34:37.028Z - normal: Watching packages
+2018-09-20T15:34:37.860Z - normal: Run Application
+2018-09-20T15:34:39.266Z - success: preview server running at http://localhost:7456
+2018-09-20T15:38:46.600Z - normal: Start building with options : {
+  "actualPlatform": "wechatgame",
+  "apiLevel": "",
+  "appABIs": [],
+  "appKey": "",
+  "appSecret": "",
+  "buildPath": "D:\\cocos\\mangosteen\\build",
+  "debug": true,
+  "dest": "D:\\cocos\\mangosteen\\build\\wechatgame",
+  "embedWebDebugger": false,
+  "encryptJs": true,
+  "excludeScenes": [],
+  "excludedModules": [],
+  "fb-instant-games": {},
+  "includeAnySDK": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.mangosteen",
+  "platform": "wechatgame",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "privateKey": "",
+  "qqplay": {
+    "REMOTE_SERVER_ROOT": "",
+    "orientation": "portrait"
+  },
+  "scenes": [
+    "a491e28a-0ebf-41d9-8d91-3eca3d36fde8"
+  ],
+  "sourceMaps": false,
+  "startScene": "a491e28a-0ebf-41d9-8d91-3eca3d36fde8",
+  "template": "link",
+  "title": "mangosteen",
+  "useDebugKeystore": true,
+  "vsVersion": "auto",
+  "webOrientation": "auto",
+  "wechatgame": {
+    "REMOTE_SERVER_ROOT": "",
+    "appid": "wx6ac3f5090a6b99c5",
+    "isSubdomain": false,
+    "orientation": "landscape",
+    "subContext": ""
+  },
+  "xxteaKey": "09ce2c72-b3a3-4c",
+  "zipCompressJs": true,
+  "project": "D:\\cocos\\mangosteen",
+  "projectName": "mangosteen",
+  "debugBuildWorker": false
+}
+2018-09-20T15:38:46.605Z - normal: Building D:\cocos\mangosteen
+2018-09-20T15:38:46.606Z - normal: Destination D:\cocos\mangosteen\build\wechatgame
+2018-09-20T15:38:47.072Z - normal: Delete D:\cocos\mangosteen\build\wechatgame\**\*
+2018-09-20T15:38:50.444Z - normal: Start building assets
+2018-09-20T15:38:50.445Z - normal: Start spawn build-worker
+2018-09-20T15:38:51.686Z - normal: Finish spawn build-worker
+2018-09-20T15:38:51.686Z - normal: Start init build-worker
+2018-09-20T15:38:57.451Z - normal: Finish init build-worker
+2018-09-20T15:38:57.451Z - normal: Start build-assets in worker
+2018-09-20T15:38:58.336Z - normal: Finish build-assets in worker
+2018-09-20T15:38:58.343Z - normal: Finish building assets
+2018-09-20T15:38:58.380Z - normal: Start building plugin scripts
+2018-09-20T15:38:58.389Z - normal: Generating main.js from D:\CocosCreator\resources\static\build-templates\shares\main.js
+2018-09-20T15:39:00.257Z - normal: Built to "D:\cocos\mangosteen\build\wechatgame" successfully
+2018-09-20T15:39:04.758Z - normal: Initializing...
 
-2018-09-16T11:38:39.114Z - warn: The Prefab used by node "Label" is missing. Detailed information:
-Node path: "Canvas/btnBegin/Label"
-Missing uuid: "3aef4961-0802-477c-a3bd-42ffa18a224f"
+2018-09-20T15:39:04.771Z - normal: idePortFile: C:\Users\Administrator\AppData\Local\微信web开发者工具\User Data\Default\.ide
 
-2018-09-16T11:40:45.395Z - warn: The Asset used by component "cc.Canvas" is missing. Detailed information:
-Node path: "Canvas"
-Missing uuid: "3aef4961-0802-477c-a3bd-42ffa18a224f"
+2018-09-20T15:39:04.812Z - normal: IDE server has started, listening on http://127.0.0.1:48670
 
-2018-09-16T11:40:45.398Z - warn: The Asset used by component "cc.Canvas" is missing. Detailed information:
-Node path: "Canvas"
-Missing uuid: "3aef4961-0802-477c-a3bd-42ffa18a224f"
+2018-09-20T15:39:04.813Z - normal: initialization finished
+
+2018-09-20T15:39:05.503Z - normal: open IDE success
 
