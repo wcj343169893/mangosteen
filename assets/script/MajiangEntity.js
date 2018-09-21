@@ -5,6 +5,10 @@ cc.Class({
 	extends: cc.Component,
 
 	properties: {
+		bgNode:{
+			default:null,
+			type:cc.Node
+		},
 		//万条筒
 		type: "",
 		//1-9点数
@@ -20,6 +24,7 @@ cc.Class({
 
 	// LIFE-CYCLE CALLBACKS:
 	onLoad() {
+		//console.log(this.backgroundSprite);
 		//添加背景节点
 		this.getBackground();
 		//合成实体
@@ -53,19 +58,19 @@ cc.Class({
 	},
 	//添加背景
 	getBackground: function() {
-		var self = this;
+		//var self = this;
 		//console.log("开始数字背景")
 		//加载背景图片
-		cc.loader.loadRes('mj_bg', cc.SpriteFrame, function(err, spriteFrame) {
-			self.bgNode = new cc.Node('mjBackground');
-			const sprite = self.bgNode.addComponent(cc.Sprite)
+		//cc.loader.loadRes('mj_bg', cc.SpriteFrame, function(err, spriteFrame) {
+			//self.bgNode = new cc.Node('mjBackground');
+			//let sprite = self.bgNode.addComponent(cc.Sprite)
 			//给sprite的spriteFrame属性 赋值  
-			sprite.spriteFrame = spriteFrame
+			//sprite.spriteFrame = this.backgroundSprite;
 			//把新的节点追加到self.node节点去。self.node，就是脚本挂载的节点  
-			self.bgNode.setPosition(cc.v2(0, 0));
-			self.bgNode.setRotation(180);
-			self.node.addChild(self.bgNode)
-		});
+			this.bgNode.setPosition(cc.v2(0, 0));
+			this.bgNode.setRotation(180);
+			//self.node.addChild(self.bgNode)
+		//});
 	},
 
 	//添加数字

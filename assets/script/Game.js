@@ -1,19 +1,17 @@
-// Learn cc.Class:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
-
+/**
+ * 桌面总控制
+ */
 cc.Class({
 	extends: cc.Component,
 
 	properties: {
 		//麻将实体引用
 		majiangPrefab: {
+			default: null,
+			type: cc.Prefab
+		},
+		//玩家引用
+		playerPrefab: {
 			default: null,
 			type: cc.Prefab
 		},
@@ -36,6 +34,8 @@ cc.Class({
 		btnReady: cc.Button,
 		//摸牌按钮
 		btnGetOne: cc.Button,
+		//加入一个新玩家
+		btnJoinOne: cc.Button,
 		//对子组数量
 		duiziCount: 0,
 		//一组对子的宽度
@@ -57,8 +57,10 @@ cc.Class({
 		//暗杠列表
 		angangList:[],
 		//明杠列表
-		minggangList:[]
-
+		minggangList:[],
+		//玩家列表,4条数据
+		players:[],
+		userId:0
 	},
 
 	// LIFE-CYCLE CALLBACKS:
@@ -79,9 +81,19 @@ cc.Class({
 		this.duiziWidth = (this.majiangWidth - this.majiangJianxi) * 3 * this.duiziScale;
 		//准备按钮绑定事件
 		this.btnReady.node.on('click', this.begin, this);
-		//测试摸牌按钮
-		this.btnGetOne.node.on('click', this.mopai, this);
 		
+		//模拟从服务器获得自己的id,所以我自己是南方
+		this.userId=1234522;
+		//初始化加载自己的头像
+		let user={id:12345,nickname:"美的厨卫",avatar:"http://file5.cjblog.org/upload/b27695e79fd8908de0b18507f89d5b7c.jpg?x-oss-process=style/w60h60"};
+		let user2={id:1234522,nickname:"美的厨卫22",avatar:"http://file5.cjblog.org/upload/b27695e79fd8908de0b18507f89d5b7c.jpg?x-oss-process=style/w60h60"};
+		this.players.push(user);
+		this.players.push(user2);
+		
+		this.initUserPosition();
+		//测试摸牌按钮
+		this.btnGetOne.node.on('click', this.testMopai, this);
+		this.btnJoinOne.node.on('click',this.testJoinPeople,this);
 	},
 
 	start() {
@@ -102,10 +114,8 @@ cc.Class({
 			this.node.addChild(majiang);
 		}*/
 	},
-	mopai:function(){
-		//摸一张，放到最右手边，理论上从服务器获得一个号码，测试从本地获取
-		let mjzz = this.numbers[this.majiangIndex];
-		
+	mopai:function(mjzz){
+		//得到一张牌		
 		let mj = this.spawnNewMj(mjzz);
 		mj.setScale(this.initScale);
 		this.currentMajiang = mj.getComponent('MajiangEntity');
@@ -113,8 +123,8 @@ cc.Class({
 		//设置固定位置
 		mj.setPosition(this.getNewMjPosition(13,true,aw));
 		this.node.addChild(mj);
-		this.majiangIndex++;
 	},
+	
 	initAllMajiang: function() {
 		this.getRandomNumbers();
 		//this.majiangPool = new cc.NodePool();
@@ -203,7 +213,7 @@ cc.Class({
 		//获取新麻将的位置
 		var randX = start-this.majiangAllWidth / 2 + (index) * (this.majiangWidth*this.initScale - this.majiangJianxi);
 		var randY = this.basicHeight + 70; //-this.node./2;
-		console.log("位置1：", index, randX, randY);
+		//console.log("位置1：", index, randX, randY);
 		if(isNewOne){
 			randX=randX+20;
 			console.log("新牌")
@@ -212,7 +222,7 @@ cc.Class({
 		return cc.v2(randX, randY);
 	},
 	getTakeOutPosition: function(node) {
-		console.log(node)
+		//console.log(node)
 		//手里牌对象池移除
 		//this.majiangPool.put(node);
 		//放入打出去的对象池
@@ -289,11 +299,74 @@ cc.Class({
 				}
 			});
 		}
-	},testGetOne:function(){
+	},
+	//生成麻将对象
+	spawnNewPlayer: function(player) {
+		console.log("创建玩家：", player.id, player.nickname,player.avatar)
+		var playerEntity = cc.instantiate(this.playerPrefab);
+		var config = playerEntity.getComponent('Player');
+		config.game = this;
+		config.nickName = player.nickname;
+		config.userId = player.id;
+		config.avatar = player.avatar;
+		return playerEntity;
+	},
+	//其他玩家出牌，分别记录他们的出牌位置
+	setOtherTakeOut:function(){
+		
+	},
+	//刷新用户的显示位置
+	initUserPosition:function(){
+		//根据players数组，确定位置，第一个是东，第二个是西
+		//还需要判断自己的方位
+		//计算出东南西北的坐标
+		let mine = cc.v2(this.basicWidth+60,this.basicHeight+80);
+		let xia=cc.v2(-this.basicWidth-60,0);
+		let duimian=cc.v2(0,-this.basicHeight-80);
+		let shang=cc.v2(this.basicWidth+60,0);
+		
+		//初始位置
+		let posOldArr=[mine,xia,duimian,shang];
+		console.log(posOldArr)
+		//拿到自己的index
+		let mineIndex=0;
 		let self=this;
+		this.players.forEach(function(value,index){
+			if(value.id = self.userId){
+				mineIndex=index;
+			}
+		});
+		let posArr=[];
+		//重新对应相应的位置
+		
+	},
+	//有人员加入
+	joinNewPeople:function(user){
+		let player = this.spawnNewPlayer(user);
+		
+		
+		//player.setPosition();
+		//如果是第一个人，默认是自己
+		
+		this.node.addChild(player);
+		this.players.push(player);
+	},
+	testMopai:function(){
+		//摸一张，放到最右手边，理论上从服务器获得一个号码，测试从本地获取
+		let mjzz = this.numbers[this.majiangIndex];
+		this.majiangIndex++;
+		this.mopai(mjzz);
+		this.btnGetOne.enabled = false
+	},
+	testJoinPeople:function(){
+		//从服务器得到一个用户，包含{id,nickname,avatar}
+		let user={id:123,nickname:"张三",avatar:"http://file5.cjblog.org/upload/b27695e79fd8908de0b18507f89d5b7c.jpg?x-oss-process=style/w60h60"};
+		this.joinNewPeople(user);
+	},
+	testGetOne:function(){
 		//测试专用，3秒自动摸牌
 		setTimeout(function(){
-			self.mopai();
-		},3000)
+			this.testMopai();
+		}.bind(this),3000)
 	}
 });
