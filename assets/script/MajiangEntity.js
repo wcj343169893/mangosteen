@@ -10,7 +10,7 @@ cc.Class({
 			type:cc.Node
 		},
 		//万条筒
-		type: "",
+		huase: "",
 		//1-9点数
 		number: 0,
 		//被选中持续时间
@@ -76,7 +76,7 @@ cc.Class({
 	//添加数字
 	getNumber: function() {
 		//这里加载assets/resource/123.png文件   
-		let name = this.type + "_" + this.number;
+		let name = this.huase + "_" + this.number;
 		console.log("开始数字", name)
 		var self = this;
 		//console.log(this.getPosition())
@@ -113,7 +113,7 @@ cc.Class({
 	},
 	onDoubleClick: function() {
 		//打出去,如果没有摸牌，是打不出去的
-		if(!this.game.currentMajiang){
+		if(!this.game.hasNewMajiang){
 			return;
 		}
 		
@@ -131,11 +131,12 @@ cc.Class({
 		//停止并且移除所有正在运行的动作列表。
         //this.node.stopAllActions();
         //如果自己就是新牌,不会影响原来的顺序
-        if(this.index != this.game.currentMajiang.index){
+        this.game.updateShoulipai(this);
+        /*if(this.index != this.game.currentMajiang.index){
         	this.game.updateShoulipai(this);
         }else{
         	this.game.testGetOne()
-        }
+        }*/
 	},
 	start() {
 
