@@ -144,7 +144,7 @@ cc.Class({
 		//this.currentMajiang = mj.getComponent('MajiangEntity');
 		let aw = this.getAW();
 		//设置固定位置，index是变化的
-		mj.setPosition(this.getNewMjPosition(this.shouliList.length - 1, true, aw));
+		mj.setPosition(this.getNewMjPosition(13, true, aw));
 		this.node.addChild(mj);
 	},
 
@@ -233,8 +233,19 @@ cc.Class({
 		//调用重新排序
 		return cc.v2(mjX, mjY);
 	},
+	//移除手里牌
+	removeShoulipai:function(ent){
+		let shouli=[];
+		this.shouliList.forEach(function(value, ind) {
+			if(value.index != ent.index){
+				shouli.push(value);
+			}
+		}.bind(this));
+		this.shouliList=shouli;
+		this.updateShoulipai(true)
+	},
 	//更新手里牌
-	updateShoulipai: function(ent) {
+	updateShoulipai: function(getOther) {
 		//更新手里牌http://www.w3school.com.cn/jsref/jsref_splice.asp
 		let newList = [];
 		//计算可操作牌的起点位置
@@ -250,41 +261,10 @@ cc.Class({
 		}.bind(this));
 		//重新排序后，表示没有新牌进入
         this.hasNewMajiang=false;
-		//@todo 测试再摸一张
-		this.testGetOne();
-		return;
-		/*
-		let self = this;
-		this.shouliList.forEach(function(value, ind) {
-			if(!ent || value.index != ent.index) {
-				if(self.currentMajiang && value.index > self.currentMajiang.index) {
-					//设置新牌的位置
-					self.currentMajiang.node.setPosition(self.getNewMjPosition(index, false, aw));
-					newList.push(self.currentMajiang);
-					//清空新牌
-					self.currentMajiang = null;
-					index++;
-				}
-				//设置留下来的位置
-				value.node.setPosition(self.getNewMjPosition(index, false, aw));
-				newList.push(value);
-				index++;
-			}
-		});
-		//如果是最后一张
-		if(self.currentMajiang) {
-			//设置新牌的位置
-			self.currentMajiang.node.setPosition(self.getNewMjPosition(index, false, aw));
-			newList.push(self.currentMajiang);
-			//清空新牌
-			self.currentMajiang = null;
-		}
-
-		this.shouliList = newList;
-		//console.log(this.shouliList);
-		if(ent) {
-			this.testGetOne();
-		}*/
+        if(getOther){
+        	//@todo 测试再摸一张
+        	this.testGetOne();
+        }
 	},
 	//获取麻将排列起点位置
 	getAW: function() {
@@ -321,13 +301,13 @@ cc.Class({
 	//刷新用户的显示位置
 	initUserPosition: function() {
 		//计算出东南西北的坐标
-		let mine = cc.v2(this.originX + 60, this.originY + 80);
+		let mine = cc.v2(this.originX + 60, this.originY + 120);
 		//楼下
-		let downstairs = cc.v2(-this.originX - 60, 0);
+		let downstairs = cc.v2(-this.originX - 60, 80);
 		//对面
-		let opposite = cc.v2(0, -this.originY - 80);
+		let opposite = cc.v2(-this.originX-280 , -this.originY - 60);
 		//楼上
-		let upstairs = cc.v2(this.originX + 60, 0);
+		let upstairs = cc.v2(this.originX + 60, 80);
 		//初始位置
 		this.positionList = [mine, downstairs, opposite, upstairs];
 		console.log(this.positionList);
@@ -419,6 +399,7 @@ cc.Class({
 		};
 		//最多存放4个人
 		if(this.players.length > 3) {
+			this.btnJoinOne.enabled = false;
 			return false;
 		}
 		this.players.push(user);

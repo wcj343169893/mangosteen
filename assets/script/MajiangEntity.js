@@ -131,7 +131,7 @@ cc.Class({
 		//停止并且移除所有正在运行的动作列表。
         //this.node.stopAllActions();
         //如果自己就是新牌,不会影响原来的顺序
-        this.game.updateShoulipai(this);
+        this.game.removeShoulipai(this);
         /*if(this.index != this.game.currentMajiang.index){
         	this.game.updateShoulipai(this);
         }else{
