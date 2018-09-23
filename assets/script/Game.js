@@ -43,6 +43,10 @@ cc.Class({
 		duiziWidth: 0,
 		//对子缩放比例
 		duiziScale: 1,
+		//对面麻将
+		duimianMjScale: 1,
+		//对面麻将宽度
+		duimianMjWidth: 36,
 		//是否只能选择一张
 		isSingle: true,
 		//麻将索引
@@ -61,6 +65,7 @@ cc.Class({
 		minggangList: [],
 		//玩家列表,4条数据
 		players: [],
+		playerEntities:null,
 		//用户id
 		userId: 0,
 		//我在桌子上的位置
@@ -75,21 +80,27 @@ cc.Class({
 		//初始化各种默认数字
 		this.initDefaultNumber();
 		//模拟从服务器获得自己的id,所以我自己是南方
-		this.userId = 1234522;
+		this.userId = 10002;
 		//初始化加载自己的头像
 		let user = {
-			id: 12345,
-			nickname: "美的厨卫",
+			uid: 10001,
+			nickname: "特工10001",
 			avatar: "http://file5.cjblog.org/upload/b27695e79fd8908de0b18507f89d5b7c.jpg?x-oss-process=style/w60h60"
 		};
 		let user2 = {
-			id: 1234522,
-			nickname: "美的厨卫22",
+			uid: 10002,
+			nickname: "特工10002",
+			avatar: "http://file5.cjblog.org/upload/b27695e79fd8908de0b18507f89d5b7c.jpg?x-oss-process=style/w60h60"
+		};
+		let user3 = {
+			uid: 10003,
+			nickname: "特工10003",
 			avatar: "http://file5.cjblog.org/upload/b27695e79fd8908de0b18507f89d5b7c.jpg?x-oss-process=style/w60h60"
 		};
 		this.players.push(user);
 		this.players.push(user2);
-
+		this.players.push(user3);
+		console.log(this.players);
 		//识别方位，初始化方位图
 		this.initUserPosition();
 		//加入所有人
@@ -98,7 +109,7 @@ cc.Class({
 		//准备按钮绑定事件
 		this.btnReady.node.on('click', this.beginEvent, this);
 		//测试摸牌按钮
-		this.btnGetOne.node.on('click', this.testMopai, this);
+		this.btnGetOne.node.on('click', this.testBeginMopai, this);
 		this.btnJoinOne.node.on('click', this.testJoinPeople, this);
 	},
 
@@ -128,30 +139,35 @@ cc.Class({
 		console.log("我已经准备好了");
 		//告诉服务器自己的准备状态，服务器判断是否满足4人，如果满足，即可开始
 		//洗牌
+		this.testGetRandomNumbers();
+		//初始化自己拍
 		this.initAllMajiang();
-		//显示到屏幕上
-		/*let mjSize = this.majiangPool.size();
-		console.log("麻将个数：" + mjSize);
-		for(var i = 0; i < mjSize; i++) {
-			let majiang = this.majiangPool.get();
-			this.node.addChild(majiang);
-		}*/
+		//初始化下家的牌
+		this.initDownStairsMjs();
 	},
-	mopai: function(mjzz) {
-		//得到一张牌		
-		let mj = this.spawnNewMj(mjzz);
-		this.hasNewMajiang=true;
-		//this.currentMajiang = mj.getComponent('MajiangEntity');
-		let aw = this.getAW();
-		//设置固定位置，index是变化的
-		mj.setPosition(this.getNewMjPosition(13, true, aw));
-		this.node.addChild(mj);
+	mopai: function(uid,mjzz) {
+		console.log("用户：",uid,"摸牌",mjzz);
+		//某个用户得到一张牌,如果是别人，是没有点数的，只有一个空对象，所以区分是自己还是别人	
+		if(uid == this.userId){
+			let mj = this.spawnNewMj(mjzz);
+			this.hasNewMajiang=true;
+			this.currentMajiang = mj.getComponent('MajiangEntity');
+			
+			//let aw = this.getAW();
+			//设置固定位置，index是变化的
+			//设置为自己的新牌位置
+			mj.setPosition(this.playerNewMjPositionList[0]);
+			this.node.addChild(mj);
+		}else{
+			//座位index
+			let index = this.getPlayerIndexByUid(uid);
+			//得到新牌坐标
+			let pos = this.playerNewMjPositionList[index];
+			
+		}
 	},
 
 	initAllMajiang: function() {
-		this.testGetRandomNumbers();
-		//this.majiangPool = new cc.NodePool();
-		//this.majiangOutPool = new cc.NodePool();
 		let initCount = 13;
 		let nubArr = [];
 		for(let i = 0; i < initCount; ++i) {
@@ -160,23 +176,12 @@ cc.Class({
 			this.majiangIndex++;
 		}
 		console.log(nubArr)
-		/*if(nubArr.length > 0) {
-			//按index排序
-			nubArr.sort(function(a, b) {
-				return a.index - b.index;
-			});
-		}*/
-		//let aw = this.getAW();
 		for(let i = 0; i < nubArr.length; ++i) {
 			let mjzz = nubArr[i];
 			//生成一个新麻将
 			let mj = this.spawnNewMj(mjzz);
-			//var config = mj.getComponent('MajiangEntity');
-			//一排，依次排开
-			//mj.setPosition(this.getNewMjPosition(i,false,0));
 			//添加到节点上
 			this.node.addChild(mj);
-			//this.majiangPool.put(mj); // 通过 putInPool 接口放入对象池
 		}
 		//把默认是乱的顺序，排列整齐,可以加一个特效
 		//1.盖牌特效
@@ -197,6 +202,10 @@ cc.Class({
 		//把所有牌放入手头牌列表，即使是新牌，也算是自己的
 		this.shouliList.push(config);
 		return mj;
+	},
+	//初始化其他玩家的牌，并不需要具体点数
+	spawnNewOtherMj:function(pos){
+		//区分是上家、下家还是对家
 	},
 	//获取每个麻将位置
 	getNewMjPosition: function(index, isNewOne, start) {
@@ -285,42 +294,83 @@ cc.Class({
 	},
 	//生成玩家对象
 	spawnNewPlayer: function(player) {
-		console.log("创建玩家：", player.id, player.nickname, player.avatar)
+		console.log("创建玩家：", player.uid, player.nickname, player.avatar)
 		var playerEntity = cc.instantiate(this.playerPrefab);
 		var config = playerEntity.getComponent('Player');
 		config.game = this;
-		config.nickName = player.nickname;
-		config.userId = player.id;
-		config.avatar = player.avatar;
+		config.userinfo=player;
+		//玩家实体数组，方便以后调用,摸牌，出牌，都由实体对象调用
+		this.playerEntities[player.uid]=config;
 		return playerEntity;
 	},
 	//其他玩家出牌，分别记录他们的出牌位置
 	setOtherTakeOutPosition: function() {
 
 	},
-	//刷新用户的显示位置
+	//计算用户的属性，包含：头像坐标，新牌，定位牌
 	initUserPosition: function() {
-		//计算出东南西北的坐标
-		let mine = cc.v2(this.originX + 60, this.originY + 120);
-		//楼下
-		let downstairs = cc.v2(-this.originX - 60, 80);
-		//对面
-		let opposite = cc.v2(-this.originX-280 , -this.originY - 60);
-		//楼上
-		let upstairs = cc.v2(this.originX + 60, 80);
-		//初始位置
-		this.positionList = [mine, downstairs, opposite, upstairs];
-		console.log(this.positionList);
 		//拿到自己的index
 		this.players.forEach(function(value, index) {
-			if(value.id = this.userId) {
+			if(value.uid == this.userId) {
 				this.myPositionIndex = index;
 			}
 		}.bind(this));
+		//初始化所有头像位置
+		this.initAvatarPositions();
+		//初始化其他玩家手里牌固定位置
+		this.initFixedMjPositions();
 		//@todo 更新方位图(中间的东南西北图片)
 	},
+	//初始化每一位玩家不动的位置
+	initFixedMjPositions:function(){
+		//自己牌的总宽度/2
+		//计算出东南西北的坐标
+		let mine = cc.v2(this.majiangAllWidth / 2, this.originY + 70);
+		//新牌位置，向右增加10像素
+		let mine_new=mine.add(cc.v2(10,0));
+		//楼下,侧面每一张牌相距20，*6张牌+全侧面一张，从下往上算
+		let downstairs = cc.v2(this.majiangAllWidth / 2, -120+64);
+		//楼下新牌，比固定增加5像素
+		let downstairs_new=downstairs.add(cc.v2(5,5));
+		//对面麻将总宽度
+		this.duimianMjAllWidth=this.duimianMjWidth*13;
+		//对面麻将初始位置，从左往右算
+		let opposite = cc.v2(this.duimianMjAllWidth/2*this.duimianMjScale , -this.originY - 64);
+		//对面新牌位置，向左移动5像素		
+		let opposite_new=opposite.add(cc.v2(-10,0));
+		//楼上，从上往下算
+		let upstairs = cc.v2(-this.majiangAllWidth / 2+10*6, 120+64);
+		
+		let upstairs_new=upstairs.add(cc.v2(-5,-5));
+		//初始每人第一张牌的位置
+		this.playerFixedMjPositionList = [mine, downstairs, opposite, upstairs];
+		//初始化每人新牌的位置
+		this.playerNewMjPositionList = [mine_new, downstairs_new, opposite_new, upstairs_new];
+		console.log(this.playerFixedMjPositionList);
+		console.log(this.playerNewMjPositionList);
+	},
+	//头像位置
+	initAvatarPositions:function(){
+		let aWidth=86;
+		let aHeight=126;
+		let padding=20;
+		//计算出东南西北的坐标
+		let mine = cc.v2(this.originX + aWidth/2+padding, this.originY + aHeight/2+60);
+		//楼下
+		let downstairs = cc.v2(-this.originX - aWidth/2-padding, 80);
+		//对面
+		let opposite = cc.v2(-this.originX-280 , -this.originY - aHeight/2-padding);
+		//楼上
+		let upstairs = cc.v2(this.originX + aWidth/2+padding, 80);
+		//初始头像位置
+		this.avatarPositionList = [mine, downstairs, opposite, upstairs];
+		console.log(this.avatarPositionList);
+	},
+	
 	//第一次加入所有人
 	joinAllPeople: function() {
+		//初始化玩家对象实体数据
+		this.playerEntities={};
 		//批量加入，此数组至少存在一条数据，就是自己
 		this.players.forEach(function(value, index) {
 			this.joinNewPeople(value, index);
@@ -328,17 +378,38 @@ cc.Class({
 	},
 	//有人员加入
 	joinNewPeople: function(user, index) {
+		//加入顺序
+		user["joinIndex"]=index;
+		//相对位置索引，从我算起
+		let posIndex = this.getPlayerPositionIndex(index);
+		user["posIndex"]=posIndex;
+		//头像位置
+		user["avatarPosition"]=this.avatarPositionList[posIndex];
+		//新麻将位置
+		user["newMjPosition"]=this.playerNewMjPositionList[posIndex];
+		//固定位置麻将
+		user["fixedMjPosition"]=this.playerFixedMjPositionList[posIndex];
 		//创建玩家对象
 		let player = this.spawnNewPlayer(user);
 		//设置坐标
-		player.setPosition(this.getPlayerPosition(index));
+		//player.setPosition(this.getPlayerPosition(index));
 		//加入到画布
 		this.node.addChild(player);
+	},
+	//根据用户id，获得座位index
+	getPlayerIndexByUid:function(uid){
+		let userIndex=0;
+		this.players.forEach(function(value, index) {
+			if(value.uid==uid){
+				userIndex=index;
+			}
+		});
+		return userIndex;
 	},
 	//根据索引index获取玩家坐标
 	getPlayerPosition: function(index) {
 		let posIndex = this.getPlayerPositionIndex(index);
-		return this.positionList[posIndex]
+		return this.avatarPositionList[posIndex]
 	},
 	//获取玩家位置，index为玩家列表索引
 	getPlayerPositionIndex: function(index) {
@@ -381,35 +452,61 @@ cc.Class({
 		//console.log(arr);
 		this.numbers = arr;
 	},
-	//测试摸牌
-	testMopai: function() {
-		//摸一张，放到最右手边，理论上从服务器获得一个号码，测试从本地获取
-		let mjzz = this.numbers[this.majiangIndex];
+	testBeginMopai:function(){
+		//点击启动开始摸牌,获取东的uid和获取一张牌
+		let uid = this.players[0].uid;
 		this.majiangIndex++;
-		this.mopai(mjzz);
-		this.btnGetOne.enabled = false
+		let mjzz = this.numbers[this.majiangIndex];
+		
+		
+		this.btnGetOne.enabled = false;
+	},
+	//测试定时摸牌，需要改成轮流摸牌
+	testGetOne: function() {
+		//摸一张，放到最右手边，理论上从服务器获得一个号码，测试从本地获取
+		//随机uid摸牌，用来对接服务器发来的信号，只能是暗杠，才能连续摸两张，
+		//生成0-3的数字
+		let ind = parseInt(Math.random()*4);
+		let uid = this.players[ind].uid;
+		this.majiangIndex++;
+		let mjzz = this.numbers[this.majiangIndex];
+		
+		//测试专用，3秒自动摸牌
+		setTimeout(function() {
+			this.mopai(uid,mjzz);
+		}.bind(this), 3000)
 	},
 	//测试加入新用户
 	testJoinPeople: function() {
 		//从服务器得到一个用户，包含{id,nickname,avatar}
 		let user = {
-			id: 123,
-			nickname: "张三",
+			uid: 10004,
+			nickname: "张三10004",
 			avatar: "http://file5.cjblog.org/upload/b27695e79fd8908de0b18507f89d5b7c.jpg?x-oss-process=style/w60h60"
 		};
-		//最多存放4个人
-		if(this.players.length > 3) {
-			this.btnJoinOne.enabled = false;
-			return false;
-		}
 		this.players.push(user);
 		this.joinNewPeople(user, this.players.length - 1);
+		//最多存放4个人
+		if(this.players.length ==4 ) {
+			this.btnJoinOne.enabled = false;
+		}
 	},
-	//测试定时摸牌，需要改成轮流摸牌
-	testGetOne: function() {
-		//测试专用，3秒自动摸牌
-		setTimeout(function() {
-			this.testMopai();
-		}.bind(this), 3000)
+	
+	//测试初始化下家手里牌
+	initDownStairsMjs:function(){
+		let initCount = 13;
+		let nubArr = [];
+		for(let i = 0; i < initCount; ++i) {
+			let ent = this.numbers[i];
+			nubArr.push(ent);
+			this.majiangIndex++;
+		}
+		for(let i = 0; i < nubArr.length; ++i) {
+			let mjzz = nubArr[i];
+			//生成一个新麻将
+			//let mj = this.spawnNewMj(mjzz);
+			//添加到节点上
+			//this.node.addChild(mj);
+		}
 	}
 });

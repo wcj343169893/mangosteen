@@ -40,7 +40,7 @@ cc.Class({
 			//console.log('Mouse end');
 			var endTimer = (new Date()).valueOf();
 			//300毫秒以内2次点击，算doubleclick
-			if(endTimer - this.clickTimer < 300) {
+			if(endTimer - this.clickTimer < 500) {
 				this.onDoubleClick();
 			} else {
 				this.onClick();
