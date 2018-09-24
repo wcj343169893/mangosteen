@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "avatar_mask",
+    "texture": "33a1c71f-06eb-4103-9c9a-eebca8c66fe3",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      70,
+      70
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      70,
+      70
+    ]
+  }
+}

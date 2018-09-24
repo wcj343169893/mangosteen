@@ -1,0 +1,21 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "zhong",
+    "texture": "0fmuYhpFRJS7jxY77eVt9z",
+    "rect": [
+      10,
+      5,
+      31,
+      53
+    ],
+    "offset": [
+      1.5,
+      0.5
+    ],
+    "originalSize": [
+      48,
+      64
+    ]
+  }
+}

@@ -265,7 +265,7 @@
     "relativePath": "mikado_outline_shadow.fnt"
   },
   "d6ff10bc-4d58-4d63-8af4-19151a90da2c": {
-    "asset": 1537066131848,
+    "asset": 1537685374660,
     "meta": 1526930962000,
     "relativePath": "textures"
   },
@@ -295,8 +295,8 @@
     "relativePath": "textures\\star.png"
   },
   "a491e28a-0ebf-41d9-8d91-3eca3d36fde8": {
-    "asset": 1537458305886,
-    "meta": 1537458305909,
+    "asset": 1537797217445,
+    "meta": 1537797217458,
     "relativePath": "game.fire"
   },
   "f8b997dd-a9fc-45fe-a706-414dbc48d384": {
@@ -327,7 +327,7 @@
   "03f9c61d-e842-4479-b872-ad441d786b71": {
     "asset": 1536724982000,
     "meta": 1537063021888,
-    "relativePath": "resources\\mj_bg.png"
+    "relativePath": "textures\\mj_bg.png"
   },
   "4675f4c7-33ef-480c-8747-60eaa47d0b3a": {
     "asset": 1536724982000,
@@ -485,18 +485,18 @@
     "relativePath": "textures\\background.jpg"
   },
   "f319e612-a073-46fa-bd75-6ed036d1b026": {
-    "asset": 1537359441145,
+    "asset": 1537706193135,
     "meta": 1537064157137,
     "relativePath": "script"
   },
   "d0267367-4ec6-4995-a614-649b1262a72e": {
-    "asset": 1537067358112,
+    "asset": 1537537799062,
     "meta": 1537066105491,
     "relativePath": "resources"
   },
   "80feea53-bba6-433e-9650-df95bdc95e54": {
-    "asset": 1537095542898,
-    "meta": 1537095542953,
+    "asset": 1537538429823,
+    "meta": 1537538429836,
     "relativePath": "prefabs\\mj_entity.prefab"
   },
   "bde42d7a-8a61-49ad-8ab9-3baf080d9f38": {
@@ -510,7 +510,7 @@
     "relativePath": "script\\Majiang.js"
   },
   "69e516c0-2b3a-41eb-869a-ca0e537bb10a": {
-    "asset": 1537097706576,
+    "asset": 1537534479749,
     "meta": 1537081801714,
     "relativePath": "prefabs"
   },
@@ -519,14 +519,129 @@
     "meta": 1537082933691,
     "relativePath": "prefabs\\mjBackground.prefab"
   },
+  "75bdac47-be2e-4da9-a7dc-d8d879a70e9e": {
+    "asset": 1537707032649,
+    "meta": 1537707032695,
+    "relativePath": "prefabs\\PlayerEntity.prefab"
+  },
+  "33a1c71f-06eb-4103-9c9a-eebca8c66fe3": {
+    "asset": 1537542118020,
+    "meta": 1537542119532,
+    "relativePath": "textures\\avatar_mask.png"
+  },
+  "cd94b5f6-415c-442d-b1b5-de78a2c0b410": {
+    "asset": 1537542627733,
+    "meta": 1537542629464,
+    "relativePath": "textures\\avatar_border.png"
+  },
+  "8acabc30-335b-4a2b-9f12-d08f4b35b49e": {
+    "asset": 1537621444699,
+    "meta": 1537621446995,
+    "relativePath": "textures\\avatar_bg.png"
+  },
+  "d4182774-7e3c-44cc-ad40-d4db73e4b2ba": {
+    "asset": 1537622517846,
+    "meta": 1537622519849,
+    "relativePath": "textures\\desktop.jpg"
+  },
+  "4d2b80c7-108e-4d1e-8d6b-e748a3aca45f": {
+    "asset": 1537625866530,
+    "meta": 1537626477093,
+    "relativePath": "textures\\mj_xie.png"
+  },
+  "66f78ec5-79ae-4a2f-b697-b07c97b5cefb": {
+    "asset": 1537626078052,
+    "meta": 1537626477098,
+    "relativePath": "textures\\zhuang.png"
+  },
+  "6e106f12-d25c-4f03-b868-688ced0b2ef7": {
+    "asset": 1537626451212,
+    "meta": 1537626477118,
+    "relativePath": "textures\\mj_bei.png"
+  },
+  "f5b14228-cb3a-4eba-b034-62c11e794f50": {
+    "asset": 1537685350101,
+    "meta": 1537685375080,
+    "relativePath": "textures\\desktop2.jpg"
+  },
+  "4d298ad9-0950-4666-af28-a3a89e6b64cc": {
+    "asset": 1537706572502,
+    "meta": 1537706574308,
+    "relativePath": "script\\DownstairPlayer.js"
+  },
+  "fc97b0e6-6225-4bc4-a201-bf2f946e7444": {
+    "asset": 1537706572515,
+    "meta": 1537706574323,
+    "relativePath": "script\\LeadPlayer.js"
+  },
+  "129daa5a-2127-4522-99ed-d5d81cc8cab3": {
+    "asset": 1537706572528,
+    "meta": 1537706574343,
+    "relativePath": "script\\OppositePlayer.js"
+  },
+  "419cabff-7855-47bc-b804-33bf952244d4": {
+    "asset": 1537706572539,
+    "meta": 1537706574345,
+    "relativePath": "script\\UpstairPlayer.js"
+  },
+  "5f72b391-c200-4712-a89d-0c08394b7e47": {
+    "asset": 1537764403246,
+    "meta": 1537764773162,
+    "relativePath": "textures\\mj_cu_bg.png"
+  },
+  "558bb0ee-540b-47d1-90c7-b8bc0edf7783": {
+    "asset": 1537767620604,
+    "meta": 1537767620623,
+    "relativePath": "prefabs\\BrightSprite.prefab"
+  },
+  "6bdf6b03-93c7-4c32-9e00-a2e764da911b": {
+    "asset": 1537795981902,
+    "meta": 1537795981922,
+    "relativePath": "prefabs\\OutSprite.prefab"
+  },
+  "6f06aec5-31fe-4b0c-8717-b45cd51c6862": {
+    "asset": 1537774336847,
+    "meta": 1537774494439,
+    "relativePath": "script\\Card.js"
+  },
+  "242b3cc8-573a-4dc3-9175-c684f331d93f": {
+    "asset": 1537774532669,
+    "meta": 1537774534509,
+    "relativePath": "script\\Player.js"
+  },
+  "2672c491-87ba-490d-a17b-6f11cd8da374": {
+    "asset": 1537778045721,
+    "meta": 1537778051796,
+    "relativePath": "script\\NewMj.js"
+  },
+  "7cbb4815-cc92-43c9-9e1f-e666646d0abf": {
+    "asset": 1537778355583,
+    "meta": 1537778409973,
+    "relativePath": "script\\MyMj.js"
+  },
+  "1f3cfee6-3e76-446c-82af-6f5410ef1ddc": {
+    "asset": 1537796434992,
+    "meta": 1537796438248,
+    "relativePath": "script\\OutMj.js"
+  },
+  "a686304e-5031-460f-978b-5fcd3fe7c7ac": {
+    "asset": 1537797321722,
+    "meta": 1537797324300,
+    "relativePath": "script\\Dustbin.js"
+  },
   "13a94d14-370b-44ed-9d6a-d2da7ca69f07": {
-    "asset": 1537457468059,
-    "meta": 1537457470091,
+    "asset": 1537800045624,
+    "meta": 1537800153896,
     "relativePath": "script\\MajiangEntity.js"
   },
+  "f8847b2f-f156-4bb3-8c20-a826461eeea6": {
+    "asset": 1537801548165,
+    "meta": 1537801550289,
+    "relativePath": "script\\CurrentMj.js"
+  },
   "184e19f0-223a-4698-a3d6-f86b4d36c416": {
-    "asset": 1537458242921,
-    "meta": 1537458245086,
+    "asset": 1537801548150,
+    "meta": 1537801550291,
     "relativePath": "script\\Game.js"
   }
 }

@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "desktop",
+    "texture": "d4182774-7e3c-44cc-ad40-d4db73e4b2ba",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1280,
+      720
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1280,
+      720
+    ]
+  }
+}

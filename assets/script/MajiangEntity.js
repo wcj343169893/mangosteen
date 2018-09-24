@@ -5,7 +5,11 @@ cc.Class({
 	extends: cc.Component,
 
 	properties: {
-		bgNode:{
+		/*bgNode:{
+			default:null,
+			type:cc.Node
+		},*/
+		numberNode:{
 			default:null,
 			type:cc.Node
 		},
@@ -26,7 +30,7 @@ cc.Class({
 	onLoad() {
 		//console.log(this.backgroundSprite);
 		//添加背景节点
-		this.getBackground();
+		//this.getBackground();
 		//合成实体
 		this.getNumber();
 		//设置状态
@@ -83,17 +87,18 @@ cc.Class({
 		//var entityConfig=this.node.getComponent("MajiangEntity");
 		cc.loader.loadRes(name, cc.SpriteFrame, function(err, spriteFrame) {
 			//创建一个新的节点，因为cc.Sprite是组件不能直接挂载到节点上，只能添加到为节点的一个组件  
-			self.numbNode = new cc.Node('numberEntity')
+			//self.numbNode = new cc.Node('numberEntity')
 			//调用新建的node的addComponent函数，会返回一个sprite的对象  
-			const sprite = self.numbNode.addComponent(cc.Sprite)
+			const sprite = this.numberNode.addComponent(cc.Sprite)
 			//给sprite的spriteFrame属性 赋值  
 			sprite.spriteFrame = spriteFrame
 			//把新的节点追加到self.node节点去。self.node，就是脚本挂载的节点  
 			//self.numbNode.setPosition(cc.v2(0,12));
-			self.numbNode.setPosition(cc.v2(0, -12));
+			//self.numbNode.setPosition(cc.v2(0, -12));
+			this.numberNode.setPosition(cc.v2(0, -12));
 			//node.setRotation(180);
-			self.node.addChild(self.numbNode)
-		})
+			//self.node.addChild(self.numbNode)
+		}.bind(this))
 	},
 	//被选中和释放选中
 	onClick: function() {
@@ -104,20 +109,31 @@ cc.Class({
 			this.unSelect();
 		} else {
 			this.isSelected = true;
-			this.bgNode.setRotation(180);
-			this.bgNode.setPosition(cc.v2(0, 22));
-			this.numbNode.setPosition(cc.v2(0, 12));
+			//this.bgNode.setRotation(180);
+			//this.bgNode.setPosition(cc.v2(0, 22));
+			//this.numbNode.setPosition(cc.v2(0, 12));
+			let pos=this.node.getPosition();
+			//向上移动10像素
+			this.node.setPosition(pos.add(cc.v2(0,20)));
 			//取消其他的选中状态
-			this.game.unSelectOthers(this);
+			this.majiang.unSelectOthers(this);
 		}
 	},
+	//双击把自己打出去
 	onDoubleClick: function() {
 		//打出去,如果没有摸牌，是打不出去的
 		if(!this.game.hasNewMajiang){
 			return;
 		}
-		
-		this.bgNode.setRotation(0);
+		this.majiang.takeOut(this);
+		if(this.isNewOne){
+			//直接打出去
+		}else{
+			//打出去之后，把新牌拿进来
+			this.majiang.scheduleUpdate();
+		}
+		return;
+		/*this.bgNode.setRotation(0);
 		this.bgNode.setPosition(cc.v2(0, 22));
 		this.numbNode.setPosition(cc.v2(0,32));
 		//整体变小
@@ -131,7 +147,7 @@ cc.Class({
 		//停止并且移除所有正在运行的动作列表。
         //this.node.stopAllActions();
         //如果自己就是新牌,不会影响原来的顺序
-        this.game.removeShoulipai(this);
+        this.game.removeShoulipai(this);*/
         /*if(this.index != this.game.currentMajiang.index){
         	this.game.updateShoulipai(this);
         }else{
@@ -143,9 +159,9 @@ cc.Class({
 	},
 	unSelect:function(){
 		this.isSelected = false;
-		this.bgNode.setRotation(180);
-		this.bgNode.setPosition(cc.v2(0, 0));
-		this.numbNode.setPosition(cc.v2(0, -12));
+		let pos=this.node.getPosition();
+		//向下移动10像素
+		this.node.setPosition(pos.sub(cc.v2(0,20)))
 	}
 
 

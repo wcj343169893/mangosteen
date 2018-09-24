@@ -1,0 +1,21 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "wan_4",
+    "texture": "b0WyW7dhNBZ48+dzaSm7Db",
+    "rect": [
+      6,
+      9,
+      33,
+      52
+    ],
+    "offset": [
+      -1.5,
+      -3
+    ],
+    "originalSize": [
+      48,
+      64
+    ]
+  }
+}

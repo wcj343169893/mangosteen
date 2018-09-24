@@ -1,7 +1,7 @@
 /**
  * 玩家属性
  */
-cc.Class({
+var Player = cc.Class({
     extends: cc.Component,
 
     properties: {
@@ -59,7 +59,7 @@ cc.Class({
 			//sprite.spriteFrame = spriteFrame
 			//设置头像坐标
 		}.bind(this));
-		this.node.setPosition(this.userinfo["avatarPosition"]);
+		//this.node.setPosition(this.userinfo["avatarPosition"]);
     },
 
     start () {

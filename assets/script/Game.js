@@ -1,6 +1,7 @@
 /**
  * 桌面总控制
  */
+const Player = require('Player');
 cc.Class({
 	extends: cc.Component,
 
@@ -14,6 +15,13 @@ cc.Class({
 		playerPrefab: {
 			default: null,
 			type: cc.Prefab
+		},
+		
+		
+		
+		playerEntities:{
+			default:[], 
+			type:Player
 		},
 		//打出去多少张
 		takeoutIndex: 0,
@@ -37,6 +45,8 @@ cc.Class({
 		btnGetOne: cc.Button,
 		//加入一个新玩家
 		btnJoinOne: cc.Button,
+		//新开始
+		btnNewReady: cc.Button,
 		//对子组数量
 		duiziCount: 0,
 		//一组对子的宽度
@@ -104,13 +114,15 @@ cc.Class({
 		//识别方位，初始化方位图
 		this.initUserPosition();
 		//加入所有人
-		this.joinAllPeople();
+		//this.joinAllPeople();
 		
 		//准备按钮绑定事件
 		this.btnReady.node.on('click', this.beginEvent, this);
 		//测试摸牌按钮
 		this.btnGetOne.node.on('click', this.testBeginMopai, this);
 		this.btnJoinOne.node.on('click', this.testJoinPeople, this);
+		//新开始
+		this.btnNewReady.node.on('click',this.testNewBegin,this);
 	},
 
 	start() {
@@ -452,14 +464,19 @@ cc.Class({
 		//console.log(arr);
 		this.numbers = arr;
 	},
+	//测试自己摸牌一次
 	testBeginMopai:function(){
 		//点击启动开始摸牌,获取东的uid和获取一张牌
-		let uid = this.players[0].uid;
+		//let uid = this.players[0].uid;
 		this.majiangIndex++;
 		let mjzz = this.numbers[this.majiangIndex];
-		
-		
-		this.btnGetOne.enabled = false;
+		let LeadSeat= this.node.getChildByName("LeadSeat");
+		let ShowMjNode =LeadSeat.getChildByName("ShowMjNode");
+		//新牌区域
+		let NewMjNode = ShowMjNode.getChildByName("NewMjNode");
+		let CurrentMj= NewMjNode.getComponent("CurrentMj");
+		CurrentMj.getOne(mjzz);
+		//this.btnGetOne.enabled = false;
 	},
 	//测试定时摸牌，需要改成轮流摸牌
 	testGetOne: function() {
@@ -491,7 +508,58 @@ cc.Class({
 			this.btnJoinOne.enabled = false;
 		}
 	},
-	
+	//新测试
+	testNewBegin:function(){
+		let LeadSeat= this.node.getChildByName("LeadSeat");
+		let ShowMjNode =LeadSeat.getChildByName("ShowMjNode");
+		let DustbinNode =LeadSeat.getChildByName("DustbinNode");
+		let Dustbin = DustbinNode.getComponent("Dustbin") ;
+		//信息卡区域
+		let CardNode =ShowMjNode.getChildByName("CardNode");
+		//初始化头像
+		let card = CardNode.getComponent("Card") ;
+		let user = {
+			uid: 10008,
+			nickname: "张三10008",
+			avatar: "http://file5.cjblog.org/upload/b27695e79fd8908de0b18507f89d5b7c.jpg?x-oss-process=style/w60h60"
+		};
+		card.initCardInfo(user);
+		//新牌区域
+		let NewMjNode = ShowMjNode.getChildByName("NewMjNode");
+		let NewMj= NewMjNode.getComponent("CurrentMj");
+		
+		//手里牌区域
+		let CurrentMjNode =ShowMjNode.getChildByName("CurrentMjNode");
+		let CurrentMj = CurrentMjNode.getComponent("CurrentMj");
+		
+		//绑定新牌区域和手里牌区域的相互引用
+		NewMj.CurrentMj=CurrentMj;
+		//NewMj.shouliList=this.shouliList;
+		//NewMj.hasNewMajiang=this.hasNewMajiang;
+		NewMj.game=this;
+		
+		CurrentMj.NewMj=NewMj;
+		//CurrentMj.shouliList=this.shouliList;
+		//CurrentMj.hasNewMajiang=this.hasNewMajiang;
+		CurrentMj.game=this;
+		
+		//绑定垃圾桶绑定
+		CurrentMj.dustbin=Dustbin;
+		NewMj.dustbin=Dustbin;
+		
+		
+		this.testGetRandomNumbers();
+		
+		let initCount = 13;
+		let nubArr = [];
+		for(let i = 0; i < initCount; ++i) {
+			let ent = this.numbers[i];
+			nubArr.push(ent);
+			this.majiangIndex++;
+		}
+		CurrentMj.initAllCurrentMj(nubArr);
+		console.log(CurrentMjNode)
+	},
 	//测试初始化下家手里牌
 	initDownStairsMjs:function(){
 		let initCount = 13;

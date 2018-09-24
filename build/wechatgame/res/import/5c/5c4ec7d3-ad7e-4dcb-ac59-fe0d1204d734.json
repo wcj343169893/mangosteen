@@ -1,0 +1,21 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tiao_2",
+    "texture": "2573lXnqNIoYQfOPCrpftx",
+    "rect": [
+      18,
+      11,
+      10,
+      50
+    ],
+    "offset": [
+      -1,
+      -4
+    ],
+    "originalSize": [
+      48,
+      64
+    ]
+  }
+}

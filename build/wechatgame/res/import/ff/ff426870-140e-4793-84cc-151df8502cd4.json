@@ -1,0 +1,21 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bai",
+    "texture": "f8uZfdqfxF/qcGQU28SNOE",
+    "rect": [
+      7,
+      6,
+      34,
+      51
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      48,
+      64
+    ]
+  }
+}

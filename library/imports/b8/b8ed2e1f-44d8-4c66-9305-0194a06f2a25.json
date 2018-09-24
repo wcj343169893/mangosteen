@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "avatar_bg",
+    "texture": "8acabc30-335b-4a2b-9f12-d08f4b35b49e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      86,
+      126
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      86,
+      126
+    ]
+  }
+}
