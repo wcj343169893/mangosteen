@@ -79,7 +79,9 @@ cc.Class({
 		//用户id
 		userId: 0,
 		//我在桌子上的位置
-		myPositionIndex: 0
+		myPositionIndex: 0,
+		//打出去的麻将数组，方便以后高亮显示
+		outMjs:[]
 	},
 
 	// LIFE-CYCLE CALLBACKS:
@@ -514,6 +516,7 @@ cc.Class({
 		let ShowMjNode =LeadSeat.getChildByName("ShowMjNode");
 		let DustbinNode =LeadSeat.getChildByName("DustbinNode");
 		let Dustbin = DustbinNode.getComponent("Dustbin") ;
+		Dustbin.game=this;
 		//信息卡区域
 		let CardNode =ShowMjNode.getChildByName("CardNode");
 		//初始化头像

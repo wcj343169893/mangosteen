@@ -112,6 +112,7 @@ cc.Class({
 		}
 		if (this.isSelected) {
 			this.unSelect();
+			this.majiang.unHighlightMj(this.mjzz);
 		} else {
 			this.isSelected = true;
 			//this.bgNode.setRotation(180);
@@ -122,6 +123,7 @@ cc.Class({
 			this.node.setPosition(pos.add(cc.v2(0, 20)));
 			//取消其他的选中状态
 			this.majiang.unSelectOthers(this);
+			this.majiang.highlightMj(this.mjzz);
 		}
 	},
 	//双击把自己打出去
@@ -130,6 +132,7 @@ cc.Class({
 		if (!this.game.hasNewMajiang) {
 			return;
 		}
+		this.game.hasNewMajiang = false;
 		this.majiang.takeOut(this);
 		if (this.isNewOne) {
 			//直接打出去

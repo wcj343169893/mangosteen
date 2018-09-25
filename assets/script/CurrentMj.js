@@ -36,6 +36,7 @@ cc.Class({
     onLoad () {
     	//计算一下实际牌的宽度,单个麻将实际宽度
     	this.realMjWidth=(this.majiangWidth-this.majiangJianxi)*this.initScale;
+     	this.realMjHeight=(this.majiangHeight-this.majiangJianxi)*this.initScale;
     },
 
     start () {
@@ -62,6 +63,7 @@ cc.Class({
     },
     scheduleUpdate:function(){
     	this.scheduleOnce(function() {
+    		console.log("更新顺序");
 		     this.updateSort();
 		 }, 0.5);
     },
@@ -95,11 +97,13 @@ cc.Class({
 		console.log("创建丢弃麻将：", mjzz.huase, mjzz.number)
 		var mj = cc.instantiate(this.outPrefab);
 		var config = mj.getComponent('OutMj');
-		//config.game = this.game;
+		config.game = this.game;
+		config.dage = this.dustbin;
 		config.huase = mjzz.huase;
 		config.number = mjzz.number;
 		config.index = mjzz.index;
-		//mj.setScale(this.initScale);
+		this.dustbin.addNewMj(config);
+		//config.setScale(this.dustbin.initScale);
 		//把所有牌放入手头牌列表，即使是新牌，也算是自己的
 		return mj;
 	},
@@ -141,7 +145,39 @@ cc.Class({
 			this.scheduleOnce(function() {
 				newNode.node.parent= parentNode;
 				newNode.isNewOne=false;
-				newNode.node.setPosition(newPos);
+				let beginPos=fixedPosition.add(cc.v2(this.realMjWidth+28.5,0));
+				newNode.node.setPosition(beginPos);
+				//往上移动
+				let newPosFirst=beginPos.add(cc.v2(0,this.realMjHeight));
+				//移动到指定位置的头上
+				let pos2 = newPos.add(cc.v2(0,this.realMjHeight));
+				
+				let moveAction = cc.sequence(
+				    cc.spawn(
+				        cc.scaleTo(0.1, 0.8, 1.2),
+				        cc.rotateTo(0.1, 61.0),
+				        cc.moveTo(0.1, newPosFirst)
+				    ),
+				    cc.spawn(
+				        cc.scaleTo(0.2, 1, 1),
+				        cc.rotateTo(0.2, 0),
+				        cc.moveTo(0.2, pos2)
+				    ),
+				    cc.delayTime(0.5),
+				    cc.spawn(
+				        cc.scaleTo(0.1, this.initScale),
+				        cc.moveTo(0.1, newPos)
+				    )
+				// 以1/2的速度慢放动画，并重复5次
+				).speed(2);//.repeat(5);
+				//初始设置类似新牌位置
+				//newNode.node.setPosition(newPosFirst);
+				//var action = cc.moveTo(0.5, newPos);
+				//newNode.node.runAction(action);
+				newNode.node.runAction(moveAction);
+				//newNode.node.setPosition(newPos);
+				//这一步很关键，如果不设置，他下次打出去的时候，就调用另外一个父类去排序
+				newNode.majiang=this;
 				console.log(this.game.shouliList);
 				console.log(newNode,newPos);
 		 	}, 1);
@@ -175,6 +211,7 @@ cc.Class({
 			//如果直接转移到垃圾桶
 			outMj.parent =this.dustbin.node;
 			outMj.setPosition(cc.v2(0,0));
+			console.log("转移父类");
 		 }, 0.05);
 		//this.dustbin.takeOut(ent.mjzz,pos1,cc.v2(0,0));
 	},
@@ -182,13 +219,20 @@ cc.Class({
 	moveMjFromNew:function(){
 		
 	},
+	unHighlightMj:function(mjzz){
+		this.dustbin.unHighlightMj(mjzz)
+	},
+	highlightMj:function(mjzz){
+		this.dustbin.highlightMj(mjzz)
+	},
 	//获取固定牌的定位
 	getFixedPosition:function(){
     	//手里牌宽度，固定后，不会随牌的数量增减而变化
     	let width=this.node.width;
+    	//console.log(this.node)
     	//最右边一颗
     	let fixedPosition=cc.v2(width/2-this.realMjWidth/2);
     	return fixedPosition;
-    }
+   }
     // update (dt) {},
 });

@@ -174,7 +174,7 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_id": "4dgETxem1NeKA+cB7UoIFp"
+    "_id": "dctQLbLYhAlJxwiEYQEUeS"
   },
   {
     "__type__": "1f3cf7mPnZEbIKvb1QQ7x3c",
@@ -184,7 +184,12 @@
       "__id__": 1
     },
     "_enabled": true,
-    "_id": "1efKu6Qi5Gna+RcveucPuO"
+    "numberNode": {
+      "__id__": 2
+    },
+    "huase": "",
+    "number": 0,
+    "_id": "949HEhKgFCv72945fvFvWk"
   },
   {
     "__type__": "cc.PrefabInfo",

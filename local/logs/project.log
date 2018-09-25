@@ -1,92 +1,55 @@
-2018-09-24T01:38:24.368Z - normal: Load ~/.CocosCreator/settings.json
-2018-09-24T01:38:24.368Z - normal: checking language setting...
-2018-09-24T01:38:24.368Z - normal: Language: zh
-2018-09-24T01:38:26.271Z - success: protocol editor-framework registered
-2018-09-24T01:38:26.271Z - success: protocol app registered
-2018-09-24T01:38:26.287Z - success: protocol theme registered
-2018-09-24T01:38:26.287Z - success: protocol packages registered
-2018-09-24T01:38:26.287Z - success: protocol unpack registerred
-2018-09-24T01:38:26.287Z - success: protocol disable-commonjs registerred
-2018-09-24T01:38:26.505Z - normal: connected!
-2018-09-24T01:38:26.521Z - normal: Check project D:\cocos\mangosteen
-2018-09-24T01:38:26.536Z - normal: Initializing project D:\cocos\mangosteen
-2018-09-24T01:38:26.536Z - normal: Initializing Cocos2d
-2018-09-24T01:38:27.613Z - normal: Initializing Asset Database
-2018-09-24T01:38:27.675Z - success: protocol uuid registerred
-2018-09-24T01:38:27.675Z - success: protocol db registerred
-2018-09-24T01:38:27.675Z - success: protocol thumbnail registerred
-2018-09-24T01:38:27.675Z - normal: Loading editor/builtin packages
-2018-09-24T01:38:27.894Z - success: assets loaded
-2018-09-24T01:38:27.894Z - success: builder loaded
-2018-09-24T01:38:27.894Z - success: cocos-analytics loaded
-2018-09-24T01:38:27.894Z - success: console loaded
-2018-09-24T01:38:27.940Z - success: fb-instant-games loaded
-2018-09-24T01:38:27.956Z - success: hierarchy loaded
-2018-09-24T01:38:27.956Z - success: inspector loaded
-2018-09-24T01:38:27.956Z - success: keystore loaded
-2018-09-24T01:38:27.972Z - success: node-library loaded
-2018-09-24T01:38:27.972Z - success: package-asset loaded
-2018-09-24T01:38:27.972Z - success: preferences loaded
-2018-09-24T01:38:27.972Z - success: project-exporter loaded
-2018-09-24T01:38:28.003Z - success: project-importer loaded
-2018-09-24T01:38:28.003Z - success: project-settings loaded
-2018-09-24T01:38:28.003Z - success: ui-kit loaded
-2018-09-24T01:38:28.003Z - success: scene loaded
-2018-09-24T01:38:28.003Z - success: sprite-editor loaded
-2018-09-24T01:38:28.018Z - success: store loaded
-2018-09-24T01:38:28.018Z - success: timeline loaded
-2018-09-24T01:38:28.018Z - normal: Loading builtin packages
-2018-09-24T01:38:28.034Z - success: asset-db-debugger loaded
-2018-09-24T01:38:28.034Z - success: code-editor loaded
-2018-09-24T01:38:28.034Z - success: color-picker loaded
-2018-09-24T01:38:28.034Z - success: jsb-adapter loaded
-2018-09-24T01:38:28.034Z - success: package-manager loaded
-2018-09-24T01:38:28.190Z - success: qqplay-adapter loaded
-2018-09-24T01:38:28.206Z - success: sdkbox loaded
-2018-09-24T01:38:28.206Z - success: tester loaded
-2018-09-24T01:38:28.206Z - success: ui-grid loaded
-2018-09-24T01:38:28.221Z - success: ui-kit-preview-extra loaded
-2018-09-24T01:38:28.221Z - success: ui-kit-preview loaded
-2018-09-24T01:38:28.221Z - success: ui-tree loaded
-2018-09-24T01:38:28.221Z - success: weapp-adapter loaded
-2018-09-24T01:38:29.781Z - normal: Loading packages
-2018-09-24T01:38:29.786Z - normal: Watching packages
-2018-09-24T01:38:30.346Z - normal: Run Application
-2018-09-24T01:38:31.914Z - success: preview server running at http://localhost:7456
-2018-09-24T07:25:05.322Z - failed: [db-task][sync-changes] Failed to import asset D:\cocos\mangosteen\assets\script\Card.js, message: Compile error: SyntaxError: D:/cocos/mangosteen/assets/script/Card.js: Unexpected token, expected , (13:5)
-  11 |     	}
-  12 |        //昵称
-> 13 |     	nickName:"",
-     |     	^
-  14 |     	//用户id
-  15 |     	userId:"",
-  16 |     	//头像（网络地址）
-    at Parser.pp$5.raise (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:4454:13)
-    at Parser.pp.unexpected (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:1761:8)
-    at Parser.pp.expect (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:1749:33)
-    at Parser.pp$3.parseObj (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3978:12)
-    at Parser.pp$3.parseExprAtom (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3719:19)
-    at Parser.pp$3.parseExprSubscripts (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3494:19)
-    at Parser.pp$3.parseMaybeUnary (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3474:19)
-    at Parser.pp$3.parseExprOps (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3404:19)
-    at Parser.pp$3.parseMaybeConditional (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3381:19)
-    at Parser.pp$3.parseMaybeAssign (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3344:19)
-2018-09-24T08:40:09.960Z - failed: [db-task][sync-changes] Failed to import asset D:\cocos\mangosteen\assets\script\CurrentMj.js, message: Compile error: SyntaxError: D:/cocos/mangosteen/assets/script/CurrentMj.js: Unexpected token, expected , (25:2)
-  23 | 		//手里牌列表
-  24 | 		shouliList: []
-> 25 | 		realMjWidth:0,
-     | 		^
-  26 | 		
-  27 |     },
-  28 | 
-    at Parser.pp$5.raise (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:4454:13)
-    at Parser.pp.unexpected (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:1761:8)
-    at Parser.pp.expect (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:1749:33)
-    at Parser.pp$3.parseObj (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3978:12)
-    at Parser.pp$3.parseExprAtom (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3719:19)
-    at Parser.pp$3.parseExprSubscripts (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3494:19)
-    at Parser.pp$3.parseMaybeUnary (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3474:19)
-    at Parser.pp$3.parseExprOps (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3404:19)
-    at Parser.pp$3.parseMaybeConditional (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3381:19)
-    at Parser.pp$3.parseMaybeAssign (D:\CocosCreator\resources\app.asar\node_modules\babylon\lib\index.js:3344:19)
-2018-09-24T13:18:24.606Z - warn: DragDrop.end() has not been invoked.
+2018-09-25T12:57:04.064Z - normal: Load ~/.CocosCreator/settings.json
+2018-09-25T12:57:04.080Z - normal: checking language setting...
+2018-09-25T12:57:04.080Z - normal: Language: zh
+2018-09-25T12:57:05.923Z - success: protocol editor-framework registered
+2018-09-25T12:57:05.923Z - success: protocol app registered
+2018-09-25T12:57:05.923Z - success: protocol theme registered
+2018-09-25T12:57:05.923Z - success: protocol packages registered
+2018-09-25T12:57:05.923Z - success: protocol unpack registerred
+2018-09-25T12:57:05.923Z - success: protocol disable-commonjs registerred
+2018-09-25T12:57:06.157Z - normal: connected!
+2018-09-25T12:57:06.157Z - normal: Check project D:\cocos\mangosteen
+2018-09-25T12:57:06.219Z - normal: Initializing project D:\cocos\mangosteen
+2018-09-25T12:57:06.219Z - normal: Initializing Cocos2d
+2018-09-25T12:57:07.431Z - normal: Initializing Asset Database
+2018-09-25T12:57:07.504Z - success: protocol uuid registerred
+2018-09-25T12:57:07.505Z - success: protocol db registerred
+2018-09-25T12:57:07.505Z - success: protocol thumbnail registerred
+2018-09-25T12:57:07.505Z - normal: Loading editor/builtin packages
+2018-09-25T12:57:07.714Z - success: assets loaded
+2018-09-25T12:57:07.718Z - success: builder loaded
+2018-09-25T12:57:07.721Z - success: cocos-analytics loaded
+2018-09-25T12:57:07.726Z - success: console loaded
+2018-09-25T12:57:07.776Z - success: fb-instant-games loaded
+2018-09-25T12:57:07.783Z - success: hierarchy loaded
+2018-09-25T12:57:07.787Z - success: inspector loaded
+2018-09-25T12:57:07.789Z - success: keystore loaded
+2018-09-25T12:57:07.795Z - success: node-library loaded
+2018-09-25T12:57:07.798Z - success: package-asset loaded
+2018-09-25T12:57:07.800Z - success: preferences loaded
+2018-09-25T12:57:07.802Z - success: project-exporter loaded
+2018-09-25T12:57:07.825Z - success: project-importer loaded
+2018-09-25T12:57:07.828Z - success: project-settings loaded
+2018-09-25T12:57:07.832Z - success: ui-kit loaded
+2018-09-25T12:57:07.836Z - success: scene loaded
+2018-09-25T12:57:07.838Z - success: sprite-editor loaded
+2018-09-25T12:57:07.843Z - success: store loaded
+2018-09-25T12:57:07.848Z - success: timeline loaded
+2018-09-25T12:57:07.848Z - normal: Loading builtin packages
+2018-09-25T12:57:07.861Z - success: asset-db-debugger loaded
+2018-09-25T12:57:07.864Z - success: code-editor loaded
+2018-09-25T12:57:07.864Z - success: color-picker loaded
+2018-09-25T12:57:07.865Z - success: jsb-adapter loaded
+2018-09-25T12:57:07.869Z - success: package-manager loaded
+2018-09-25T12:57:08.042Z - success: qqplay-adapter loaded
+2018-09-25T12:57:08.048Z - success: sdkbox loaded
+2018-09-25T12:57:08.054Z - success: tester loaded
+2018-09-25T12:57:08.058Z - success: ui-grid loaded
+2018-09-25T12:57:08.061Z - success: ui-kit-preview-extra loaded
+2018-09-25T12:57:08.069Z - success: ui-kit-preview loaded
+2018-09-25T12:57:08.072Z - success: ui-tree loaded
+2018-09-25T12:57:08.073Z - success: weapp-adapter loaded
+2018-09-25T12:57:10.063Z - normal: Loading packages
+2018-09-25T12:57:10.063Z - normal: Watching packages
+2018-09-25T12:57:10.921Z - normal: Run Application
+2018-09-25T12:57:12.590Z - success: preview server running at http://localhost:7456

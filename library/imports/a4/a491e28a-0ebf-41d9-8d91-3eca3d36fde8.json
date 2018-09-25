@@ -683,8 +683,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 400,
-      "height": 150
+      "width": 240,
+      "height": 180
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -693,8 +693,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 2,
-      "y": 86,
+      "x": 6,
+      "y": 55,
       "z": 0
     },
     "_scale": {
@@ -729,6 +729,14 @@
     "outPrefab": {
       "__uuid__": "6bdf6b03-93c7-4c32-9e00-a2e764da911b"
     },
+    "majiangWidth": 58,
+    "majiangHeight": 84,
+    "majiangJianxi": 4,
+    "initScale": 0.5,
+    "realMjWidth": 0,
+    "realMjHeight": 0,
+    "lineCount": 10,
+    "outMjs": [],
     "_id": "acI6fNVDhFFIl3Wy/fmEqn"
   },
   {
@@ -1147,8 +1155,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 534,
-      "y": 292,
+      "x": 476,
+      "y": -125,
       "z": 0
     },
     "_scale": {
@@ -1394,7 +1402,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 534,
+      "x": 479,
       "y": 244,
       "z": 0
     },
@@ -1913,6 +1921,7 @@
     "players": [],
     "userId": 0,
     "myPositionIndex": 0,
+    "outMjs": [],
     "_id": "eat/LSAzlODY/ixfeiaVOf"
   }
 ]

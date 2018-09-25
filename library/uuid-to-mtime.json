@@ -265,7 +265,7 @@
     "relativePath": "mikado_outline_shadow.fnt"
   },
   "d6ff10bc-4d58-4d63-8af4-19151a90da2c": {
-    "asset": 1537685374660,
+    "asset": 1537764773111,
     "meta": 1526930962000,
     "relativePath": "textures"
   },
@@ -295,8 +295,8 @@
     "relativePath": "textures\\star.png"
   },
   "a491e28a-0ebf-41d9-8d91-3eca3d36fde8": {
-    "asset": 1537797217445,
-    "meta": 1537797217458,
+    "asset": 1537886232349,
+    "meta": 1537886232388,
     "relativePath": "game.fire"
   },
   "f8b997dd-a9fc-45fe-a706-414dbc48d384": {
@@ -485,7 +485,7 @@
     "relativePath": "textures\\background.jpg"
   },
   "f319e612-a073-46fa-bd75-6ed036d1b026": {
-    "asset": 1537706193135,
+    "asset": 1537795967106,
     "meta": 1537064157137,
     "relativePath": "script"
   },
@@ -510,7 +510,7 @@
     "relativePath": "script\\Majiang.js"
   },
   "69e516c0-2b3a-41eb-869a-ca0e537bb10a": {
-    "asset": 1537534479749,
+    "asset": 1537767195941,
     "meta": 1537081801714,
     "relativePath": "prefabs"
   },
@@ -595,8 +595,8 @@
     "relativePath": "prefabs\\BrightSprite.prefab"
   },
   "6bdf6b03-93c7-4c32-9e00-a2e764da911b": {
-    "asset": 1537795981902,
-    "meta": 1537795981922,
+    "asset": 1537881647991,
+    "meta": 1537881648032,
     "relativePath": "prefabs\\OutSprite.prefab"
   },
   "6f06aec5-31fe-4b0c-8717-b45cd51c6862": {
@@ -619,29 +619,29 @@
     "meta": 1537778409973,
     "relativePath": "script\\MyMj.js"
   },
+  "13a94d14-370b-44ed-9d6a-d2da7ca69f07": {
+    "asset": 1537885544361,
+    "meta": 1537885550642,
+    "relativePath": "script\\MajiangEntity.js"
+  },
+  "184e19f0-223a-4698-a3d6-f86b4d36c416": {
+    "asset": 1537885938623,
+    "meta": 1537885942529,
+    "relativePath": "script\\Game.js"
+  },
   "1f3cfee6-3e76-446c-82af-6f5410ef1ddc": {
-    "asset": 1537796434992,
-    "meta": 1537796438248,
+    "asset": 1537886082306,
+    "meta": 1537886083771,
     "relativePath": "script\\OutMj.js"
   },
   "a686304e-5031-460f-978b-5fcd3fe7c7ac": {
-    "asset": 1537797321722,
-    "meta": 1537797324300,
+    "asset": 1537887210072,
+    "meta": 1537887212555,
     "relativePath": "script\\Dustbin.js"
   },
-  "13a94d14-370b-44ed-9d6a-d2da7ca69f07": {
-    "asset": 1537800045624,
-    "meta": 1537800153896,
-    "relativePath": "script\\MajiangEntity.js"
-  },
   "f8847b2f-f156-4bb3-8c20-a826461eeea6": {
-    "asset": 1537801548165,
-    "meta": 1537801550289,
+    "asset": 1537888874230,
+    "meta": 1537888875977,
     "relativePath": "script\\CurrentMj.js"
-  },
-  "184e19f0-223a-4698-a3d6-f86b4d36c416": {
-    "asset": 1537801548150,
-    "meta": 1537801550291,
-    "relativePath": "script\\Game.js"
   }
 }

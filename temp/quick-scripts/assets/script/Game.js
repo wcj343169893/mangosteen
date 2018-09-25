@@ -83,7 +83,7 @@ cc.Class({
 		minggangList: [],
 		//玩家列表,4条数据
 		players: []
-	}, _defineProperty(_properties, "playerEntities", null), _defineProperty(_properties, "userId", 0), _defineProperty(_properties, "myPositionIndex", 0), _properties),
+	}, _defineProperty(_properties, "playerEntities", null), _defineProperty(_properties, "userId", 0), _defineProperty(_properties, "myPositionIndex", 0), _defineProperty(_properties, "outMjs", []), _properties),
 
 	// LIFE-CYCLE CALLBACKS:
 
@@ -511,6 +511,7 @@ cc.Class({
 		var ShowMjNode = LeadSeat.getChildByName("ShowMjNode");
 		var DustbinNode = LeadSeat.getChildByName("DustbinNode");
 		var Dustbin = DustbinNode.getComponent("Dustbin");
+		Dustbin.game = this;
 		//信息卡区域
 		var CardNode = ShowMjNode.getChildByName("CardNode");
 		//初始化头像

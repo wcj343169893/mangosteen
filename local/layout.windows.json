@@ -18,7 +18,7 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 338,
+                "height": 339.40625,
                 "type": "panel",
                 "width": 204
               },
@@ -27,12 +27,12 @@
                 "children": [
                   "assets"
                 ],
-                "height": 623.984375,
+                "height": 626.578125,
                 "type": "panel",
                 "width": 204
               }
             ],
-            "height": 965,
+            "height": 969,
             "type": "dock-v",
             "width": 204
           },
@@ -41,7 +41,7 @@
             "children": [
               "scene"
             ],
-            "height": 965,
+            "height": 969,
             "type": "panel",
             "width": 1275.984375
           },
@@ -50,7 +50,7 @@
             "children": [
               "inspector"
             ],
-            "height": 965,
+            "height": 969,
             "type": "panel",
             "width": 428
           }
