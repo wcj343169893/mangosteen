@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "mj_gai",
+    "texture": "697c7176-ac03-4375-9637-b96ef37c205e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      36,
+      50
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      36,
+      50
+    ]
+  }
+}

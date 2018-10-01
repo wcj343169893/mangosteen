@@ -92,6 +92,7 @@ cc.Class({
 		//console.log(this.node)
 		//初始化各种默认数字
 		this.initDefaultNumber();
+		this.seatsNames = ["LeadSeat", "DownSeat", "OppositeSeat", "UpSeat"];
 		//模拟从服务器获得自己的id,所以我自己是南方
 		this.userId = 10002;
 		//初始化加载自己的头像
@@ -110,19 +111,26 @@ cc.Class({
 			nickname: "特工10003",
 			avatar: "http://file5.cjblog.org/upload/b27695e79fd8908de0b18507f89d5b7c.jpg?x-oss-process=style/w60h60"
 		};
+		var user4 = {
+			uid: 10004,
+			nickname: "特工10004",
+			avatar: "http://file5.cjblog.org/upload/b27695e79fd8908de0b18507f89d5b7c.jpg?x-oss-process=style/w60h60"
+		};
 		this.players.push(user);
 		this.players.push(user2);
 		this.players.push(user3);
+		//this.players.push(user4);
 		console.log(this.players);
 		//识别方位，初始化方位图
 		this.initUserPosition();
 		//加入所有人
-		//this.joinAllPeople();
+		this.joinAllPeople();
 
 		//准备按钮绑定事件
 		this.btnReady.node.on('click', this.beginEvent, this);
 		//测试摸牌按钮
 		this.btnGetOne.node.on('click', this.testBeginMopai, this);
+		//测试加入新玩家
 		this.btnJoinOne.node.on('click', this.testJoinPeople, this);
 		//新开始
 		this.btnNewReady.node.on('click', this.testNewBegin, this);
@@ -325,9 +333,9 @@ cc.Class({
 			}
 		}.bind(this));
 		//初始化所有头像位置
-		this.initAvatarPositions();
+		//this.initAvatarPositions();
 		//初始化其他玩家手里牌固定位置
-		this.initFixedMjPositions();
+		//this.initFixedMjPositions();
 		//@todo 更新方位图(中间的东南西北图片)
 	},
 	//初始化每一位玩家不动的位置
@@ -373,6 +381,7 @@ cc.Class({
 		var upstairs = cc.v2(this.originX + aWidth / 2 + padding, 80);
 		//初始头像位置
 		this.avatarPositionList = [mine, downstairs, opposite, upstairs];
+
 		console.log(this.avatarPositionList);
 	},
 
@@ -392,18 +401,40 @@ cc.Class({
 		//相对位置索引，从我算起
 		var posIndex = this.getPlayerPositionIndex(index);
 		user["posIndex"] = posIndex;
-		//头像位置
-		user["avatarPosition"] = this.avatarPositionList[posIndex];
-		//新麻将位置
-		user["newMjPosition"] = this.playerNewMjPositionList[posIndex];
-		//固定位置麻将
-		user["fixedMjPosition"] = this.playerFixedMjPositionList[posIndex];
-		//创建玩家对象
-		var player = this.spawnNewPlayer(user);
-		//设置坐标
-		//player.setPosition(this.getPlayerPosition(index));
-		//加入到画布
-		this.node.addChild(player);
+
+		//获取座位名称
+		var seatName = this.seatsNames[posIndex];
+		//得到座位节点
+		var seat = this.node.getChildByName(seatName);
+		var ShowMjNode = seat.getChildByName("ShowMjNode");
+		//获取垃圾桶节点
+		var DustbinNode = seat.getChildByName("DustbinNode");
+		var Dustbin = DustbinNode.getComponent("Dustbin");
+		Dustbin.game = this;
+		//信息卡区域
+		var CardNode = ShowMjNode.getChildByName("CardNode");
+		//初始化头像
+		var card = CardNode.getComponent("Card");
+		card.initCardInfo(user);
+
+		//新牌区域
+		var NewMjNode = ShowMjNode.getChildByName("NewMjNode");
+		var NewMj = NewMjNode.getComponent("CurrentMj");
+
+		//手里牌区域
+		var CurrentMjNode = ShowMjNode.getChildByName("CurrentMjNode");
+		var CurrentMj = CurrentMjNode.getComponent("CurrentMj");
+
+		//绑定新牌区域和手里牌区域的相互引用
+		NewMj.CurrentMj = CurrentMj;
+		NewMj.game = this;
+
+		CurrentMj.NewMj = NewMj;
+		CurrentMj.game = this;
+
+		//绑定垃圾桶绑定
+		CurrentMj.dustbin = Dustbin;
+		NewMj.dustbin = Dustbin;
 	},
 	//根据用户id，获得座位index
 	getPlayerIndexByUid: function getPlayerIndexByUid(uid) {
@@ -513,15 +544,15 @@ cc.Class({
 		var Dustbin = DustbinNode.getComponent("Dustbin");
 		Dustbin.game = this;
 		//信息卡区域
-		var CardNode = ShowMjNode.getChildByName("CardNode");
-		//初始化头像
-		var card = CardNode.getComponent("Card");
-		var user = {
-			uid: 10008,
-			nickname: "张三10008",
-			avatar: "http://file5.cjblog.org/upload/b27695e79fd8908de0b18507f89d5b7c.jpg?x-oss-process=style/w60h60"
-		};
-		card.initCardInfo(user);
+		/*let CardNode =ShowMjNode.getChildByName("CardNode");
+  //初始化头像
+  let card = CardNode.getComponent("Card") ;
+  let user = {
+  	uid: 10008,
+  	nickname: "张三10008",
+  	avatar: "http://file5.cjblog.org/upload/b27695e79fd8908de0b18507f89d5b7c.jpg?x-oss-process=style/w60h60"
+  };
+  card.initCardInfo(user);*/
 		//新牌区域
 		var NewMjNode = ShowMjNode.getChildByName("NewMjNode");
 		var NewMj = NewMjNode.getComponent("CurrentMj");

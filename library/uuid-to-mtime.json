@@ -295,8 +295,8 @@
     "relativePath": "textures\\star.png"
   },
   "a491e28a-0ebf-41d9-8d91-3eca3d36fde8": {
-    "asset": 1537886232349,
-    "meta": 1537886232388,
+    "asset": 1538407349884,
+    "meta": 1538407349904,
     "relativePath": "game.fire"
   },
   "f8b997dd-a9fc-45fe-a706-414dbc48d384": {
@@ -520,14 +520,9 @@
     "relativePath": "prefabs\\mjBackground.prefab"
   },
   "75bdac47-be2e-4da9-a7dc-d8d879a70e9e": {
-    "asset": 1537707032649,
-    "meta": 1537707032695,
+    "asset": 1538403007145,
+    "meta": 1538403007188,
     "relativePath": "prefabs\\PlayerEntity.prefab"
-  },
-  "33a1c71f-06eb-4103-9c9a-eebca8c66fe3": {
-    "asset": 1537542118020,
-    "meta": 1537542119532,
-    "relativePath": "textures\\avatar_mask.png"
   },
   "cd94b5f6-415c-442d-b1b5-de78a2c0b410": {
     "asset": 1537542627733,
@@ -590,8 +585,8 @@
     "relativePath": "textures\\mj_cu_bg.png"
   },
   "558bb0ee-540b-47d1-90c7-b8bc0edf7783": {
-    "asset": 1537767620604,
-    "meta": 1537767620623,
+    "asset": 1538407266175,
+    "meta": 1538407266206,
     "relativePath": "prefabs\\BrightSprite.prefab"
   },
   "6bdf6b03-93c7-4c32-9e00-a2e764da911b": {
@@ -624,24 +619,59 @@
     "meta": 1537885550642,
     "relativePath": "script\\MajiangEntity.js"
   },
-  "184e19f0-223a-4698-a3d6-f86b4d36c416": {
-    "asset": 1537885938623,
-    "meta": 1537885942529,
-    "relativePath": "script\\Game.js"
-  },
   "1f3cfee6-3e76-446c-82af-6f5410ef1ddc": {
     "asset": 1537886082306,
     "meta": 1537886083771,
     "relativePath": "script\\OutMj.js"
   },
+  "33a1c71f-06eb-4103-9c9a-eebca8c66fe3": {
+    "asset": 1538398640422,
+    "meta": 1538398644616,
+    "relativePath": "textures\\avatar_mask.png"
+  },
+  "a9853491-207d-48a5-84d1-0a24d425c4c5": {
+    "asset": 1538399917751,
+    "meta": 1538399919881,
+    "relativePath": "textures\\avatar_bg2.png"
+  },
   "a686304e-5031-460f-978b-5fcd3fe7c7ac": {
-    "asset": 1537887210072,
-    "meta": 1537887212555,
+    "asset": 1538402281693,
+    "meta": 1538402283021,
     "relativePath": "script\\Dustbin.js"
   },
   "f8847b2f-f156-4bb3-8c20-a826461eeea6": {
-    "asset": 1537888874230,
-    "meta": 1537888875977,
+    "asset": 1538402842678,
+    "meta": 1538402846426,
     "relativePath": "script\\CurrentMj.js"
+  },
+  "3464411e-1f8e-4620-a7cf-74360b856bb2": {
+    "asset": 1538403962444,
+    "meta": 1538404044936,
+    "relativePath": "textures\\mj_z_xie.png"
+  },
+  "697c7176-ac03-4375-9637-b96ef37c205e": {
+    "asset": 1538404027359,
+    "meta": 1538404044941,
+    "relativePath": "textures\\mj_gai.png"
+  },
+  "d71749de-791e-4eb1-be41-91da64e02fe6": {
+    "asset": 1538404180257,
+    "meta": 1538404180291,
+    "relativePath": "prefabs\\RightSprite.prefab"
+  },
+  "2a57c157-2860-4d53-aa16-ebbb3e977f36": {
+    "asset": 1538404213935,
+    "meta": 1538404213954,
+    "relativePath": "prefabs\\LeftSprite.prefab"
+  },
+  "fa88dec0-daeb-4100-82a6-e2d2546b0e8f": {
+    "asset": 1538404265223,
+    "meta": 1538404265226,
+    "relativePath": "prefabs\\OppositeSprite.prefab"
+  },
+  "184e19f0-223a-4698-a3d6-f86b4d36c416": {
+    "asset": 1538406905038,
+    "meta": 1538406907477,
+    "relativePath": "script\\Game.js"
   }
 }

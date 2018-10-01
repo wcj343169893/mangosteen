@@ -1,55 +1,291 @@
-2018-09-25T12:57:04.064Z - normal: Load ~/.CocosCreator/settings.json
-2018-09-25T12:57:04.080Z - normal: checking language setting...
-2018-09-25T12:57:04.080Z - normal: Language: zh
-2018-09-25T12:57:05.923Z - success: protocol editor-framework registered
-2018-09-25T12:57:05.923Z - success: protocol app registered
-2018-09-25T12:57:05.923Z - success: protocol theme registered
-2018-09-25T12:57:05.923Z - success: protocol packages registered
-2018-09-25T12:57:05.923Z - success: protocol unpack registerred
-2018-09-25T12:57:05.923Z - success: protocol disable-commonjs registerred
-2018-09-25T12:57:06.157Z - normal: connected!
-2018-09-25T12:57:06.157Z - normal: Check project D:\cocos\mangosteen
-2018-09-25T12:57:06.219Z - normal: Initializing project D:\cocos\mangosteen
-2018-09-25T12:57:06.219Z - normal: Initializing Cocos2d
-2018-09-25T12:57:07.431Z - normal: Initializing Asset Database
-2018-09-25T12:57:07.504Z - success: protocol uuid registerred
-2018-09-25T12:57:07.505Z - success: protocol db registerred
-2018-09-25T12:57:07.505Z - success: protocol thumbnail registerred
-2018-09-25T12:57:07.505Z - normal: Loading editor/builtin packages
-2018-09-25T12:57:07.714Z - success: assets loaded
-2018-09-25T12:57:07.718Z - success: builder loaded
-2018-09-25T12:57:07.721Z - success: cocos-analytics loaded
-2018-09-25T12:57:07.726Z - success: console loaded
-2018-09-25T12:57:07.776Z - success: fb-instant-games loaded
-2018-09-25T12:57:07.783Z - success: hierarchy loaded
-2018-09-25T12:57:07.787Z - success: inspector loaded
-2018-09-25T12:57:07.789Z - success: keystore loaded
-2018-09-25T12:57:07.795Z - success: node-library loaded
-2018-09-25T12:57:07.798Z - success: package-asset loaded
-2018-09-25T12:57:07.800Z - success: preferences loaded
-2018-09-25T12:57:07.802Z - success: project-exporter loaded
-2018-09-25T12:57:07.825Z - success: project-importer loaded
-2018-09-25T12:57:07.828Z - success: project-settings loaded
-2018-09-25T12:57:07.832Z - success: ui-kit loaded
-2018-09-25T12:57:07.836Z - success: scene loaded
-2018-09-25T12:57:07.838Z - success: sprite-editor loaded
-2018-09-25T12:57:07.843Z - success: store loaded
-2018-09-25T12:57:07.848Z - success: timeline loaded
-2018-09-25T12:57:07.848Z - normal: Loading builtin packages
-2018-09-25T12:57:07.861Z - success: asset-db-debugger loaded
-2018-09-25T12:57:07.864Z - success: code-editor loaded
-2018-09-25T12:57:07.864Z - success: color-picker loaded
-2018-09-25T12:57:07.865Z - success: jsb-adapter loaded
-2018-09-25T12:57:07.869Z - success: package-manager loaded
-2018-09-25T12:57:08.042Z - success: qqplay-adapter loaded
-2018-09-25T12:57:08.048Z - success: sdkbox loaded
-2018-09-25T12:57:08.054Z - success: tester loaded
-2018-09-25T12:57:08.058Z - success: ui-grid loaded
-2018-09-25T12:57:08.061Z - success: ui-kit-preview-extra loaded
-2018-09-25T12:57:08.069Z - success: ui-kit-preview loaded
-2018-09-25T12:57:08.072Z - success: ui-tree loaded
-2018-09-25T12:57:08.073Z - success: weapp-adapter loaded
-2018-09-25T12:57:10.063Z - normal: Loading packages
-2018-09-25T12:57:10.063Z - normal: Watching packages
-2018-09-25T12:57:10.921Z - normal: Run Application
-2018-09-25T12:57:12.590Z - success: preview server running at http://localhost:7456
+2018-10-01T12:46:51.579Z - normal: Load ~/.CocosCreator/settings.json
+2018-10-01T12:46:51.579Z - normal: checking language setting...
+2018-10-01T12:46:51.579Z - normal: Language: zh
+2018-10-01T12:46:53.451Z - success: protocol editor-framework registered
+2018-10-01T12:46:53.451Z - success: protocol app registered
+2018-10-01T12:46:53.451Z - success: protocol theme registered
+2018-10-01T12:46:53.451Z - success: protocol packages registered
+2018-10-01T12:46:53.467Z - success: protocol unpack registerred
+2018-10-01T12:46:53.467Z - success: protocol disable-commonjs registerred
+2018-10-01T12:46:53.685Z - normal: connected!
+2018-10-01T12:46:53.685Z - normal: Check project D:\cocos\mangosteen
+2018-10-01T12:46:53.701Z - normal: Initializing project D:\cocos\mangosteen
+2018-10-01T12:46:53.701Z - normal: Initializing Cocos2d
+2018-10-01T12:46:54.824Z - normal: Initializing Asset Database
+2018-10-01T12:46:54.917Z - success: protocol uuid registerred
+2018-10-01T12:46:54.917Z - success: protocol db registerred
+2018-10-01T12:46:54.917Z - success: protocol thumbnail registerred
+2018-10-01T12:46:54.917Z - normal: Loading editor/builtin packages
+2018-10-01T12:46:55.136Z - success: assets loaded
+2018-10-01T12:46:55.136Z - success: builder loaded
+2018-10-01T12:46:55.151Z - success: cocos-analytics loaded
+2018-10-01T12:46:55.151Z - success: console loaded
+2018-10-01T12:46:55.214Z - success: fb-instant-games loaded
+2018-10-01T12:46:55.229Z - success: hierarchy loaded
+2018-10-01T12:46:55.229Z - success: inspector loaded
+2018-10-01T12:46:55.245Z - success: keystore loaded
+2018-10-01T12:46:55.245Z - success: node-library loaded
+2018-10-01T12:46:55.245Z - success: package-asset loaded
+2018-10-01T12:46:55.245Z - success: preferences loaded
+2018-10-01T12:46:55.261Z - success: project-exporter loaded
+2018-10-01T12:46:55.276Z - success: project-importer loaded
+2018-10-01T12:46:55.276Z - success: project-settings loaded
+2018-10-01T12:46:55.292Z - success: ui-kit loaded
+2018-10-01T12:46:55.292Z - success: scene loaded
+2018-10-01T12:46:55.292Z - success: sprite-editor loaded
+2018-10-01T12:46:55.292Z - success: store loaded
+2018-10-01T12:46:55.307Z - success: timeline loaded
+2018-10-01T12:46:55.307Z - normal: Loading builtin packages
+2018-10-01T12:46:55.307Z - success: asset-db-debugger loaded
+2018-10-01T12:46:55.323Z - success: code-editor loaded
+2018-10-01T12:46:55.323Z - success: color-picker loaded
+2018-10-01T12:46:55.323Z - success: jsb-adapter loaded
+2018-10-01T12:46:55.323Z - success: package-manager loaded
+2018-10-01T12:46:55.495Z - success: qqplay-adapter loaded
+2018-10-01T12:46:55.495Z - success: sdkbox loaded
+2018-10-01T12:46:55.510Z - success: tester loaded
+2018-10-01T12:46:55.510Z - success: ui-grid loaded
+2018-10-01T12:46:55.510Z - success: ui-kit-preview-extra loaded
+2018-10-01T12:46:55.510Z - success: ui-kit-preview loaded
+2018-10-01T12:46:55.510Z - success: ui-tree loaded
+2018-10-01T12:46:55.510Z - success: weapp-adapter loaded
+2018-10-01T12:46:57.032Z - normal: Loading packages
+2018-10-01T12:46:57.032Z - normal: Watching packages
+2018-10-01T12:46:57.578Z - normal: Run Application
+2018-10-01T12:46:58.575Z - success: preview server running at http://localhost:7456
+2018-10-01T13:26:06.516Z - warn: Please set node's active instead of rigidbody's enabled.
+2018-10-01T14:00:27.209Z - normal: Start building with options : {
+  "actualPlatform": "wechatgame",
+  "apiLevel": "",
+  "appABIs": [],
+  "appKey": "",
+  "appSecret": "",
+  "buildPath": "D:\\cocos\\mangosteen\\build",
+  "debug": true,
+  "dest": "D:\\cocos\\mangosteen\\build\\wechatgame",
+  "embedWebDebugger": false,
+  "encryptJs": true,
+  "excludeScenes": [],
+  "excludedModules": [],
+  "fb-instant-games": {},
+  "includeAnySDK": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.mangosteen",
+  "platform": "wechatgame",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "privateKey": "",
+  "qqplay": {
+    "REMOTE_SERVER_ROOT": "",
+    "orientation": "portrait"
+  },
+  "scenes": [
+    "a491e28a-0ebf-41d9-8d91-3eca3d36fde8"
+  ],
+  "sourceMaps": false,
+  "startScene": "a491e28a-0ebf-41d9-8d91-3eca3d36fde8",
+  "template": "link",
+  "title": "mangosteen",
+  "useDebugKeystore": true,
+  "vsVersion": "auto",
+  "webOrientation": "auto",
+  "wechatgame": {
+    "REMOTE_SERVER_ROOT": "",
+    "appid": "wx6ac3f5090a6b99c5",
+    "isSubdomain": false,
+    "orientation": "landscape",
+    "subContext": ""
+  },
+  "xxteaKey": "09ce2c72-b3a3-4c",
+  "zipCompressJs": true,
+  "project": "D:\\cocos\\mangosteen",
+  "projectName": "mangosteen",
+  "debugBuildWorker": false
+}
+2018-10-01T14:00:27.213Z - normal: Building D:\cocos\mangosteen
+2018-10-01T14:00:27.214Z - normal: Destination D:\cocos\mangosteen\build\wechatgame
+2018-10-01T14:00:27.673Z - normal: Delete D:\cocos\mangosteen\build\wechatgame\**\*
+2018-10-01T14:00:31.897Z - normal: Start building assets
+2018-10-01T14:00:31.898Z - normal: Start spawn build-worker
+2018-10-01T14:00:33.169Z - normal: Finish spawn build-worker
+2018-10-01T14:00:33.169Z - normal: Start init build-worker
+2018-10-01T14:00:38.246Z - normal: Finish init build-worker
+2018-10-01T14:00:38.246Z - normal: Start build-assets in worker
+2018-10-01T14:00:39.375Z - normal: Finish build-assets in worker
+2018-10-01T14:00:39.382Z - normal: Finish building assets
+2018-10-01T14:00:39.426Z - normal: Start building plugin scripts
+2018-10-01T14:00:39.436Z - normal: Generating main.js from D:\CocosCreator\resources\static\build-templates\shares\main.js
+2018-10-01T14:00:41.585Z - normal: Built to "D:\cocos\mangosteen\build\wechatgame" successfully
+2018-10-01T14:00:57.712Z - normal: Initializing...
+
+2018-10-01T14:00:57.721Z - normal: idePortFile: C:\Users\Administrator\AppData\Local\微信web开发者工具\User Data\Default\.ide
+
+2018-10-01T14:00:57.746Z - normal: IDE server has started, listening on http://127.0.0.1:46519
+
+2018-10-01T14:00:57.746Z - normal: initialization finished
+
+2018-10-01T14:00:58.453Z - normal: open IDE success
+
+2018-10-01T14:57:53.467Z - normal: Start building with options : {
+  "actualPlatform": "wechatgame",
+  "apiLevel": "",
+  "appABIs": [],
+  "appKey": "",
+  "appSecret": "",
+  "buildPath": "D:\\cocos\\mangosteen\\build",
+  "debug": true,
+  "dest": "D:\\cocos\\mangosteen\\build\\wechatgame",
+  "embedWebDebugger": false,
+  "encryptJs": true,
+  "excludeScenes": [],
+  "excludedModules": [],
+  "fb-instant-games": {},
+  "includeAnySDK": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.mangosteen",
+  "platform": "wechatgame",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "privateKey": "",
+  "qqplay": {
+    "REMOTE_SERVER_ROOT": "",
+    "orientation": "portrait"
+  },
+  "scenes": [
+    "a491e28a-0ebf-41d9-8d91-3eca3d36fde8"
+  ],
+  "sourceMaps": false,
+  "startScene": "a491e28a-0ebf-41d9-8d91-3eca3d36fde8",
+  "template": "link",
+  "title": "mangosteen",
+  "useDebugKeystore": true,
+  "vsVersion": "auto",
+  "webOrientation": "auto",
+  "wechatgame": {
+    "REMOTE_SERVER_ROOT": "",
+    "appid": "wx6ac3f5090a6b99c5",
+    "isSubdomain": false,
+    "orientation": "landscape",
+    "subContext": ""
+  },
+  "xxteaKey": "09ce2c72-b3a3-4c",
+  "zipCompressJs": true,
+  "project": "D:\\cocos\\mangosteen",
+  "projectName": "mangosteen",
+  "debugBuildWorker": false
+}
+2018-10-01T14:57:53.470Z - normal: Building D:\cocos\mangosteen
+2018-10-01T14:57:53.471Z - normal: Destination D:\cocos\mangosteen\build\wechatgame
+2018-10-01T14:57:53.472Z - normal: Delete D:\cocos\mangosteen\build\wechatgame\**\*
+2018-10-01T14:57:58.186Z - normal: Start building assets
+2018-10-01T14:57:58.187Z - normal: Start spawn build-worker
+2018-10-01T14:57:59.513Z - normal: Finish spawn build-worker
+2018-10-01T14:57:59.513Z - normal: Start init build-worker
+2018-10-01T14:58:05.295Z - normal: Finish init build-worker
+2018-10-01T14:58:05.295Z - normal: Start build-assets in worker
+2018-10-01T14:58:06.381Z - normal: Finish build-assets in worker
+2018-10-01T14:58:06.391Z - normal: Finish building assets
+2018-10-01T14:58:06.446Z - normal: Start building plugin scripts
+2018-10-01T14:58:06.455Z - normal: Generating main.js from D:\CocosCreator\resources\static\build-templates\shares\main.js
+2018-10-01T14:58:09.503Z - normal: Built to "D:\cocos\mangosteen\build\wechatgame" successfully
+2018-10-01T15:31:19.222Z - normal: Start building with options : {
+  "actualPlatform": "wechatgame",
+  "apiLevel": "",
+  "appABIs": [],
+  "appKey": "",
+  "appSecret": "",
+  "buildPath": "D:\\cocos\\mangosteen\\build",
+  "debug": true,
+  "dest": "D:\\cocos\\mangosteen\\build\\wechatgame",
+  "embedWebDebugger": false,
+  "encryptJs": true,
+  "excludeScenes": [],
+  "excludedModules": [],
+  "fb-instant-games": {},
+  "includeAnySDK": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.mangosteen",
+  "platform": "wechatgame",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "privateKey": "",
+  "qqplay": {
+    "REMOTE_SERVER_ROOT": "",
+    "orientation": "portrait"
+  },
+  "scenes": [
+    "a491e28a-0ebf-41d9-8d91-3eca3d36fde8"
+  ],
+  "sourceMaps": false,
+  "startScene": "a491e28a-0ebf-41d9-8d91-3eca3d36fde8",
+  "template": "link",
+  "title": "mangosteen",
+  "useDebugKeystore": true,
+  "vsVersion": "auto",
+  "webOrientation": "auto",
+  "wechatgame": {
+    "REMOTE_SERVER_ROOT": "",
+    "appid": "wx6ac3f5090a6b99c5",
+    "isSubdomain": false,
+    "orientation": "landscape",
+    "subContext": ""
+  },
+  "xxteaKey": "09ce2c72-b3a3-4c",
+  "zipCompressJs": true,
+  "project": "D:\\cocos\\mangosteen",
+  "projectName": "mangosteen",
+  "debugBuildWorker": false
+}
+2018-10-01T15:31:19.229Z - normal: Building D:\cocos\mangosteen
+2018-10-01T15:31:19.229Z - normal: Destination D:\cocos\mangosteen\build\wechatgame
+2018-10-01T15:31:19.231Z - normal: Delete D:\cocos\mangosteen\build\wechatgame\**\*
+2018-10-01T15:31:27.751Z - normal: Start building assets
+2018-10-01T15:31:27.752Z - normal: Start spawn build-worker
+2018-10-01T15:31:29.418Z - normal: Finish spawn build-worker
+2018-10-01T15:31:29.418Z - normal: Start init build-worker
+2018-10-01T15:31:35.429Z - normal: Finish init build-worker
+2018-10-01T15:31:35.429Z - normal: Start build-assets in worker
+2018-10-01T15:31:36.977Z - normal: Finish build-assets in worker
+2018-10-01T15:31:36.985Z - normal: Finish building assets
+2018-10-01T15:31:37.040Z - normal: Start building plugin scripts
+2018-10-01T15:31:37.049Z - normal: Generating main.js from D:\CocosCreator\resources\static\build-templates\shares\main.js
+2018-10-01T15:31:41.023Z - normal: Built to "D:\cocos\mangosteen\build\wechatgame" successfully

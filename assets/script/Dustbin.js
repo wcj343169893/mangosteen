@@ -44,10 +44,16 @@ cc.Class({
     	this.game.outMjs.push(outmj);
     	this.scheduleOnce(function() {
     		console.log("调整大小");
-    		outmj.node.setScale(this.initScale);
+    		//outmj.node.setScale(this.initScale);
     		//outmj.node.setPosition(this.getNewPosition());
+    		let runTime=0.5;
     		// 创建一个移动动作
-			var action = cc.moveTo(0.5, this.getNewPosition());
+			let moveAction = cc.moveTo(runTime, this.getNewPosition());
+			moveAction=moveAction.easing(cc.easeOut(3.0));
+			let action = cc.spawn(
+				cc.scaleTo(runTime, this.initScale),
+				moveAction
+			);
 			// 执行动作
 			outmj.node.runAction(action);
 		 }, 2);
